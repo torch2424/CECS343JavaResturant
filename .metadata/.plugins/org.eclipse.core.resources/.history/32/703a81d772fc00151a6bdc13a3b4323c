@@ -14,7 +14,7 @@ public class ResturantGUI extends Application {
 
 		try {
 
-			AnchorPane page = (AnchorPane) FXMLLoader.load(getClass().getResource("OrderGui.fxml"));
+			AnchorPane page = (AnchorPane) FXMLLoader.load(ResturantGUI.class.getResource("awdasdOrderGui.fxml"));
 			Scene scene = new Scene(page);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Resturant Application");
