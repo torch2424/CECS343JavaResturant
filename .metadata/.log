@@ -345,6 +345,7 @@ org.eclipse.core.commands.ExecutionException: No activeWorkbenchWindow found whi
 !MESSAGE From: e(fx)clipse - Composite - FX Tooling 0.8.1.201303112105 (at.bestsolution.efxclipse.tooling.feature.feature.group 0.8.1.201303112105)
 !SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-04-04 20:29:28.710
 !MESSAGE To: at.bestsolution.efxclipse.tooling.css.feature.feature.group [0.8.1.201303112105]
+<<<<<<< HEAD
 !SESSION 2016-04-06 20:06:06.956 -----------------------------------------------
 eclipse.buildId=4.5.2.M20160212-1500
 java.version=1.8.0_73
@@ -458,3 +459,389 @@ org.eclipse.swt.SWTException: Widget is disposed
 
 !ENTRY org.eclipse.jdt.launching 4 105 2016-04-06 20:54:07.994
 !MESSAGE The specified JRE installation does not exist
+=======
+!SESSION 2016-04-04 20:47:59.916 -----------------------------------------------
+eclipse.buildId=debbuild
+java.version=1.8.0_77
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2016-04-04 20:59:22.179
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2016-04-04 20:59:22.179
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-04-04 20:59:22.179
+!MESSAGE Software being installed: e(fx)clipse - IDE 2.3.0.201603030809 (org.eclipse.fx.ide.feature.feature.group 2.3.0.201603030809)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-04-04 20:59:22.179
+!MESSAGE Missing requirement: Core (=none UI) components 2.3.0.201603030703 (org.eclipse.fx.core 2.3.0.201603030703) requires 'bundle com.google.guava 15.0.0' but it could not be found
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-04-04 20:59:22.179
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-04-04 20:59:22.179
+!MESSAGE From: e(fx)clipse - IDE - Basic 2.3.0.201603030809 (org.eclipse.fx.ide.basic.feature.feature.group 2.3.0.201603030809)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-04-04 20:59:22.179
+!MESSAGE To: org.eclipse.fx.core [2.3.0.201603030703]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-04-04 20:59:22.179
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-04-04 20:59:22.179
+!MESSAGE From: e(fx)clipse - IDE 2.3.0.201603030809 (org.eclipse.fx.ide.feature.feature.group 2.3.0.201603030809)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-04-04 20:59:22.179
+!MESSAGE To: org.eclipse.fx.ide.basic.feature.feature.group [2.3.0.201603030809]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2016-04-04 20:59:22.189
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2016-04-04 20:59:22.189
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-04-04 20:59:22.189
+!MESSAGE Software being installed: e(fx)clipse - IDE 2.3.0.201603030809 (org.eclipse.fx.ide.feature.feature.group 2.3.0.201603030809)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-04-04 20:59:22.189
+!MESSAGE Missing requirement: Core (=none UI) components 2.3.0.201603030703 (org.eclipse.fx.core 2.3.0.201603030703) requires 'bundle com.google.guava 15.0.0' but it could not be found
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-04-04 20:59:22.189
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-04-04 20:59:22.189
+!MESSAGE From: e(fx)clipse - IDE - Basic 2.3.0.201603030809 (org.eclipse.fx.ide.basic.feature.feature.group 2.3.0.201603030809)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-04-04 20:59:22.189
+!MESSAGE To: org.eclipse.fx.core [2.3.0.201603030703]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-04-04 20:59:22.189
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-04-04 20:59:22.189
+!MESSAGE From: e(fx)clipse - IDE 2.3.0.201603030809 (org.eclipse.fx.ide.feature.feature.group 2.3.0.201603030809)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-04-04 20:59:22.189
+!MESSAGE To: org.eclipse.fx.ide.basic.feature.feature.group [2.3.0.201603030809]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2016-04-04 21:07:10.886
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 4 10011 2016-04-04 21:07:10.886
+!MESSAGE "Object Teams Patch for JDT/Core" is not applicable to the current configuration and will not be installed.
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2016-04-04 21:07:10.892
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.operations 4 10011 2016-04-04 21:07:10.892
+!MESSAGE "Object Teams Patch for JDT/Core" is not applicable to the current configuration and will not be installed.
+!SESSION 2016-04-04 21:07:25.902 -----------------------------------------------
+eclipse.buildId=debbuild
+java.version=1.8.0_77
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2016-04-04 21:09:34.944
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2016-04-04 21:09:34.945
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-04-04 21:09:34.945
+!MESSAGE Software being installed: e(fx)clipse - IDE 2.3.0.201603030809 (org.eclipse.fx.ide.feature.feature.group 2.3.0.201603030809)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-04-04 21:09:34.945
+!MESSAGE Missing requirement: Core (=none UI) components 2.3.0.201603030703 (org.eclipse.fx.core 2.3.0.201603030703) requires 'bundle com.google.guava 15.0.0' but it could not be found
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-04-04 21:09:34.945
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-04-04 21:09:34.945
+!MESSAGE From: e(fx)clipse - IDE - Basic 2.3.0.201603030809 (org.eclipse.fx.ide.basic.feature.feature.group 2.3.0.201603030809)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-04-04 21:09:34.945
+!MESSAGE To: org.eclipse.fx.core [2.3.0.201603030703]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-04-04 21:09:34.945
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-04-04 21:09:34.945
+!MESSAGE From: e(fx)clipse - IDE 2.3.0.201603030809 (org.eclipse.fx.ide.feature.feature.group 2.3.0.201603030809)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-04-04 21:09:34.945
+!MESSAGE To: org.eclipse.fx.ide.basic.feature.feature.group [2.3.0.201603030809]
+
+!ENTRY org.eclipse.equinox.p2.operations 4 0 2016-04-04 21:09:34.955
+!MESSAGE Operation details
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2016-04-04 21:09:34.955
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-04-04 21:09:34.956
+!MESSAGE Software being installed: e(fx)clipse - IDE 2.3.0.201603030809 (org.eclipse.fx.ide.feature.feature.group 2.3.0.201603030809)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2016-04-04 21:09:34.956
+!MESSAGE Missing requirement: Core (=none UI) components 2.3.0.201603030703 (org.eclipse.fx.core 2.3.0.201603030703) requires 'bundle com.google.guava 15.0.0' but it could not be found
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-04-04 21:09:34.956
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-04-04 21:09:34.956
+!MESSAGE From: e(fx)clipse - IDE - Basic 2.3.0.201603030809 (org.eclipse.fx.ide.basic.feature.feature.group 2.3.0.201603030809)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-04-04 21:09:34.956
+!MESSAGE To: org.eclipse.fx.core [2.3.0.201603030703]
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 1 2016-04-04 21:09:34.956
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-04-04 21:09:34.956
+!MESSAGE From: e(fx)clipse - IDE 2.3.0.201603030809 (org.eclipse.fx.ide.feature.feature.group 2.3.0.201603030809)
+!SUBENTRY 3 org.eclipse.equinox.p2.director 4 0 2016-04-04 21:09:34.956
+!MESSAGE To: org.eclipse.fx.ide.basic.feature.feature.group [2.3.0.201603030809]
+!SESSION 2016-04-04 21:10:33.817 -----------------------------------------------
+eclipse.buildId=debbuild
+java.version=1.8.0_77
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.jdt.core 4 4 2016-04-04 21:13:08.849
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+
+public class Seat {
+	
+
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+# Eclipse Core
+.project
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# PyDev specific (Python IDE for Eclipse)
+*.pydevproject
+
+# CDT-specific (C/C++ Development Tooling)
+.cproject
+
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
+# Java annotation processor (APT)
+.factorypath
+
+# PDT-specific (PHP Development Tools)
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# Tern plugin
+.tern-project
+
+# TeXlipse plugin
+.texlipse
+
+# STS (Spring Tool Suite)
+.springBeans
+
+# Code Recommenders
+.recommenders/
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2648)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:434)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:183)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2656)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1219)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:246)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:203)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:258)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:518)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1082)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:170)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:89)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1247)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2016-04-04 21:13:08.855
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2648)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:434)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:183)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2656)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1219)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:246)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:203)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:258)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:518)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1082)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:170)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:89)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1247)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2016-04-04 21:13:08.856
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2648)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:434)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:183)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2656)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1219)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:246)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:203)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:258)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:518)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1082)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:170)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:89)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:728)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:788)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1247)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:126)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:108)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:89)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:87)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:151)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:86)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:104)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:77)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:206)
+
+!ENTRY org.eclipse.jdt.core 4 4 2016-04-04 21:13:08.883
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+
+public class Seat {
+	
+
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+# Eclipse Core
+.project
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# PyDev specific (Python IDE for Eclipse)
+*.pydevproject
+
+# CDT-specific (C/C++ Development Tooling)
+.cproject
+
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
+# Java annotation processor (APT)
+.factorypath
+
+# PDT-specific (PHP Development Tools)
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# Tern plugin
+.tern-project
+
+# TeXlipse plugin
+.texlipse
+
+# STS (Spring Tool Suite)
+.springBeans
+
+# Code Recommenders
+.recommenders/
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2648)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:434)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:183)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2656)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1219)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:291)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1207)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:807)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider$1.run(ASTProvider.java:544)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider.createAST(ASTProvider.java:537)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:480)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:470)
+	at org.eclipse.jdt.ui.SharedASTProvider.getAST(SharedASTProvider.java:128)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:170)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$3.run(SelectionListenerWithASTManager.java:155)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2016-04-04 21:13:08.884
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2648)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:434)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:183)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2656)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1219)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:291)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1207)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:807)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider$1.run(ASTProvider.java:544)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider.createAST(ASTProvider.java:537)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:480)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:470)
+	at org.eclipse.jdt.ui.SharedASTProvider.getAST(SharedASTProvider.java:128)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:170)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$3.run(SelectionListenerWithASTManager.java:155)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2016-04-04 21:13:08.885
+!MESSAGE Error in JDT Core during AST creation
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.ASTNode.setSourceRange(ASTNode.java:2648)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:434)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:183)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2656)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1219)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:291)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1207)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:807)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider$1.run(ASTProvider.java:544)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider.createAST(ASTProvider.java:537)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:480)
+	at org.eclipse.jdt.internal.ui.javaeditor.ASTProvider.getAST(ASTProvider.java:470)
+	at org.eclipse.jdt.ui.SharedASTProvider.getAST(SharedASTProvider.java:128)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:170)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$3.run(SelectionListenerWithASTManager.java:155)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+>>>>>>> refs/remotes/origin/master
