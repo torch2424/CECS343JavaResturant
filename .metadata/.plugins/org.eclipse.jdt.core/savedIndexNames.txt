@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+INDEX VERSION 1.127+C:\Users\torch\Documents\GitHub\CECS343JavaResturant\.metadata\.plugins\org.eclipse.jdt.core
+2627731616.index
+3432554434.index
+=======
 INDEX VERSION 1.126+/home/aaron/Source/CECS343JavaResturant/.metadata/.plugins/org.eclipse.jdt.core
 46282419.index
 2066489604.index
@@ -29,3 +34,4 @@ INDEX VERSION 1.126+/home/aaron/Source/CECS343JavaResturant/.metadata/.plugins/o
 1513993030.index
 2982035129.index
 2598035366.index
+>>>>>>> refs/remotes/origin/master
