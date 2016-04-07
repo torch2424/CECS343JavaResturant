@@ -3,7 +3,7 @@ package application;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 
@@ -13,8 +13,8 @@ public class ResturantGUI extends Application {
 	public void start(Stage primaryStage) {
 
 		try {
-
-			VBox page = (VBox) FXMLLoader.load(ResturantGUI.class.getResource("OrderGui.fxml"));
+x
+			AnchorPane page = (AnchorPane) FXMLLoader.load(ResturantGUI.class.getClassLoader().getResource("OrderGui.fxml"));
 			Scene scene = new Scene(page);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Resturant Application");
