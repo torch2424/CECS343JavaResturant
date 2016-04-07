@@ -1,37 +1,21 @@
-<<<<<<< HEAD
 INDEX VERSION 1.127+C:\Users\torch\Documents\GitHub\CECS343JavaResturant\.metadata\.plugins\org.eclipse.jdt.core
-2627731616.index
+2585328351.index
+2164123280.index
+249459504.index
+3449116704.index
+919737581.index
+52205867.index
+2265617865.index
+4210772659.index
+2474304018.index
+882139543.index
+1755913921.index
+1063230161.index
 3432554434.index
-=======
-INDEX VERSION 1.126+/home/aaron/Source/CECS343JavaResturant/.metadata/.plugins/org.eclipse.jdt.core
-46282419.index
-2066489604.index
-3721837726.index
-3888198363.index
-120211678.index
-527624335.index
-460152253.index
-989528713.index
-2841451250.index
-1932949083.index
-2630498905.index
-392775124.index
-1913109094.index
-3900037835.index
-2233963263.index
-664741535.index
-1159935248.index
-1259291233.index
-3542660237.index
-3885805113.index
-2426646370.index
-870796568.index
-2771403403.index
-2307328643.index
-742522455.index
-3214207201.index
-3938652823.index
-1513993030.index
-2982035129.index
-2598035366.index
->>>>>>> refs/remotes/origin/master
+3951094714.index
+1492968368.index
+1269277382.index
+2445747412.index
+3383392487.index
+2627731616.index
+1910228820.index
