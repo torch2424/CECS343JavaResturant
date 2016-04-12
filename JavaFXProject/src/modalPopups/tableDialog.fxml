@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<VBox prefHeight="426.0" prefWidth="509.0" style="-fx-background-color: #F2F2F2; -fx-border-color: #050505; -fx-border-width: 5px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="modalPopups.TablePopupControl">
+   <children>
+      <Label alignment="TOP_CENTER" prefHeight="21.0" prefWidth="506.0" text="Create New Table" />
+      <Label prefHeight="32.0" prefWidth="95.0" text="Name" />
+      <TextField id="tableName" fx:id="tableName" promptText="Enter Name Here" />
+      <Label prefHeight="32.0" prefWidth="150.0" text="Number of Seats" />
+      <TextField id="tableSize" fx:id="tableSize" promptText="1 -4" />
+      <Button alignment="CENTER" mnemonicParsing="false" onAction="#submitTable" prefHeight="57.0" prefWidth="256.0" text="Submit" textAlignment="CENTER" translateX="115.0" translateY="20.0" />
+   </children>
+</VBox>
