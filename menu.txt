@@ -1,0 +1,111 @@
+Appetizers:
+Smoked Salmon 9
+Spinach & Artichoke Dip 10
+Escargot 10
+Grilled Octopus 11
+Crab Cakes 11
+Smoked Beef Croquettes 13
+Calamari 13
+Mussels Marinières 15
+Duck Wings L’Orange 15
+Beef Bites Au Poivre 15
+Walleye Fingers 15
+
+Pasta:
+Fettuccine Alfredo 14
+
+Chicken Fettuccine Alfredo 18
+Shrimp Fettuccine Alfredo 20
+Lobster Spaghetti 28
+Creole Sausage Penne 18
+
+Specialties:
+Pan Roast Half Chicken 20
+Chicken Chardonnay 22
+Chicken Française 24
+Pork Chop 20
+Duck 26
+Lamb T-Bone 30
+Veal Piccata 26
+Veal Parmesan 26
+Veal Marsala 28
+Prime Top Sirloin Steak 28
+Filet Mignon Steak 38
+Ribeye Steak 38
+
+Salads:
+Mixed Greens 7
+Spinach 8
+Beet 9
+Wedge 9
+Caesar 7
+Chicken Caesar 14
+Calamari Caesar 16
+Shrimp Caesar 16
+Salmon Caesar 18
+
+Dressings:
+Ranch
+Italian
+Vinegrate
+Lemon
+none
+
+Seafood:
+Salmon 26
+Walleye 30
+Sea Bass 36
+Seared Scallops 28
+Blackened Prawns 32
+
+Soups:
+French Onion Soup 7
+Scallop & Cucumber Soup 9
+
+Sides:
+Sautéed Vegetable Medley 4
+Green Beans 4
+Sautéed Mushrooms 6
+Asparagus with Hollandaise 9
+Sautéed Fingerling Potatoes 4
+Boursin Mashed Potatoes 4
+Parmesan Leek Potatoes 4
+House Cut Fries with Béarnaise 5
+Wild Mushroom Risotto 5
+Baked Mac & Cheese 8
+
+Dessert:
+Signature Chomeur Pudding 9
+Maple Crème Brûlée 5
+Chocolate Ganache Custard Cake 5
+French Silk Tart 5
+Vanilla Cheesecake 6
+Chocolate Molten Lava Cake 6
+House Made Ice Cream & Sorbet 6
+
+Drinks:
+Stella Artois Lager 7
+Budweiser 5
+Miller Lite 5
+Coors Light 5
+O’Doul’s 5
+Bard’s Gluten Free 6
+Sam Adams Lager 6
+Lift Bridge Farm Girl 6
+Fulton IPA 6
+Amstel Light 6
+Guinness 8
+Michelob Golden Light 6
+French Martini 10
+Red Sangria 10
+Jameson & Ginger 10
+White Wine 7
+Red Wine 7
+Coke 4
+Sprite 4
+Lemonade 4
+Dr. Pepper 4
+Orange Juice 5
+Cranberry Juice 5
+Ice Tea 5
+Water 0 
