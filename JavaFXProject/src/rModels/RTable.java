@@ -9,35 +9,56 @@ import java.util.ArrayList;
  */
 public class RTable {
 
+	//Static id generator for tables
+	public static int tableID;
+
 	/** number of table **/
-	private int tableNum;
+	private String tableNum;
 	/** name of the table **/
 	private String tableName;
 	/** check condition of table (clean or dirty) */
-	private String condition; // should condition be set to a boolean?
-	/** check status of table (if available, in use, or waiting to be cleaned) */
-	private String status;
+	private boolean tableClean;
+	/** check status of table (if available, in use) */
+	private boolean tableStatus;
 	/** number of seats in a table **/
-	private ArrayList<RSeat> tableSize;
+	private ArrayList<RSeat> tableSeats;
 
-	private RSeat seat;
-
+	//Overloading Constructors
 	public RTable() {
-		tableNum = 0;
-		condition = " ";
-		tableName = " ";
-		status = " ";
-		seat = new RSeat();
-		tableSize = new ArrayList<RSeat>();
-
+		this("", 0, true,  true);
 	}
 
-	public int getTableNum() {
+	public RTable(String name) {
+		this(name, 0, true, true);
+	}
+	public RTable(String name, int number) {
+		this(name, number, true,  true);
+	}
+	public RTable(String name, int number, boolean condition) {
+		this(name, number, condition,  true);
+	}
+
+	public RTable(String name, int number, boolean condition, boolean status) {
+
+		tableName = name;
+
+		tableID++;
+		tableNum = tableName + "" + tableID;
+
+		tableClean = condition;
+		tableStatus = status;
+
+		//Loop to create our Seats
+		tableSeats = new ArrayList<RSeat>();
+		for(int i = 0; i < number; i ++) {
+			tableSeats.add(new RSeat());
+		}
+	}
+
+
+
+	public String getTableNum() {
 		return tableNum;
-	}
-
-	public void setTableNum(int tableNum) {
-		this.tableNum = tableNum;
 	}
 
 	public String getTableName() {
@@ -48,41 +69,34 @@ public class RTable {
 		this.tableName = tableName;
 	}
 
-	public String getCondition() {
-		return condition;
+	public boolean getCondition() {
+		return tableClean;
 	}
 
-	public void setCondition() {
-		//if (thisbuttonispressed){
-		condition = "clean";
-		//} else if (thisbuttonispressed){
-		condition = "dirty";
-		//}
+	public void setCondition(boolean condition) {
+
+		tableClean = condition;
 	}
 
-	public String getStatus() {
-		return status;
+	public boolean getStatus() {
+		return tableStatus;
 	}
 
-	public void setStatus() {
-		if (condition.equals("dirty")) {
-			status = "awaiting cleaning";
-		} else if (condition.equals("clean")) {
-			status = "available";
-		}
-		status = "in use";
+	public void setStatus(boolean status) {
+
+		tableStatus = status;
 	}
 
 	public int getTableSize() {
 
-		return tableSize.size();
+		return tableSeats.size();
 	}
 
 	/** add seat to the table**/
 	public void addSeat() {
-		if (tableSize.size() < 4) {
+		if (tableSeats.size() < 4) {
 			RSeat chair = new RSeat();
-			tableSize.add(chair);
+			tableSeats.add(chair);
 			chair.setSeatNum(getTableSize());
 			chair.setSeatName("Seat " + chair.getSeatNum());
 
