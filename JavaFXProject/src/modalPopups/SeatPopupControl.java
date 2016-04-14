@@ -8,15 +8,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class TablePopupControl {
+public class SeatPopupControl {
 
 	// fx:id="tableName"
 	@FXML
-	private TextField tableName;
+	private TextField seatName;
 
 	// fx:id="tableSize"
 	@FXML
-	private TextField tableSize;
+	private TextField seatSize;
 
 	//Submit button
 	@FXML
@@ -30,15 +30,15 @@ public class TablePopupControl {
 	void initialize() {
 
 		//Check Our values here
-	    assert tableName != null : "No Textbox id tableName";
+	    assert seatName != null : "No Textbox id seatName";
 	}
 
 	@FXML
 	public void submitTable(ActionEvent event){
 
 		//Get our values
-		String inputName = tableName.getText();
-		int inputSize = Integer.valueOf(tableSize.getText());
+		String inputName = seatName.getText();
+		int inputSize = Integer.valueOf(seatSize.getText());
 
 		//And create the table in our state
 		ResturantGUI.addTable(inputName, inputSize);

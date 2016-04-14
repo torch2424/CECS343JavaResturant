@@ -2,6 +2,7 @@ package application;
 
 import java.util.ArrayList;
 
+import fxtools.FxAlert;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -50,7 +51,7 @@ public class ResturantGUI extends Application {
 		//Add the table to the array
 		tables.add(new RTable(name, size));
 
-		System.out.println("Table Created! Name: " + name + ", Size: " + size);
+		FxAlert.alertInfo("Success!", "Table Created! Name: " + name + ", Size: " + size);
 	}
 
 }

@@ -93,12 +93,10 @@ public class RTable {
 	}
 
 	/** add seat to the table**/
-	public void addSeat() {
+	public void addSeat(String seatName) {
 		if (tableSeats.size() < 4) {
-			RSeat chair = new RSeat();
+			RSeat chair = new RSeat(seatName);
 			tableSeats.add(chair);
-			chair.setSeatNum(getTableSize());
-			chair.setSeatName("Seat " + chair.getSeatNum());
 
 		} else {
 			System.out.println("Table is full");
