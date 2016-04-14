@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -12,6 +13,11 @@
       <TextField id="tableName" fx:id="tableName" promptText="Enter Name Here" />
       <Label prefHeight="32.0" prefWidth="150.0" text="Number of Seats" />
       <TextField id="tableSize" fx:id="tableSize" promptText="1 -4" />
-      <Button alignment="CENTER" mnemonicParsing="false" onAction="#submitTable" prefHeight="57.0" prefWidth="256.0" text="Submit" textAlignment="CENTER" translateX="115.0" translateY="20.0" />
+      <Button alignment="CENTER" mnemonicParsing="false" onAction="#submitTable" prefHeight="75.0" prefWidth="250.0" text="Submit" textAlignment="CENTER" translateX="115.0" translateY="20.0" />
+      <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeModal" prefHeight="75.0" prefWidth="250.0" text="Close" textAlignment="CENTER">
+         <VBox.margin>
+            <Insets left="115.0" top="75.0" />
+         </VBox.margin>
+      </Button>
    </children>
 </VBox>

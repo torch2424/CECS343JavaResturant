@@ -3,8 +3,10 @@ package modalPopups;
 import application.ResturantGUI;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class TablePopupControl {
 
@@ -19,6 +21,10 @@ public class TablePopupControl {
 	//Submit button
 	@FXML
 	private Button myButton;
+
+	//Close button
+	@FXML
+	private Button closeButton;
 
 	@FXML // This method is called by the FXMLLoader when initialization is complete
 	void initialize() {
@@ -36,5 +42,14 @@ public class TablePopupControl {
 
 		//And create the table in our state
 		ResturantGUI.addTable(inputName, inputSize);
+	}
+
+	@FXML
+	public void closeModal(ActionEvent event){
+
+		//Simply close the window
+		Node source = (Node) event.getSource();
+		Stage stage = (Stage) source.getScene().getWindow();
+		stage.close();
 	}
 }
