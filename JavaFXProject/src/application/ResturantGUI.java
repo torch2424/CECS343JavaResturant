@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import fxtools.FxAlert;
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
@@ -20,7 +21,7 @@ public class ResturantGUI extends Application {
 
 	//Our array of tables
 	private static ArrayList<RTable> tables = new ArrayList<RTable>();
-	RSeat currentSeats[];
+	private static ArrayList<RSeat> currentSeats = new ArrayList<RSeat>();
 	ROrder currentOrders[];
 
 	//Fucntion to Simply Launch the app
@@ -52,6 +53,23 @@ public class ResturantGUI extends Application {
 		tables.add(new RTable(name, size));
 
 		FxAlert.alertInfo("Success!", "Table Created! Name: " + name + ", Size: " + size);
+	}
+
+	//Seat Functions
+	public static void addSeat(String tableID, String seatName) {
+
+		//Add the table to the array
+		tables.get(0).addSeat(seatName);
+
+		FxAlert.alertInfo("Success!", "Seat Created! Name: " + seatName);
+	}
+
+	public static void addSeat(String tableID, String seatName, ObservableList<String> Orders) {
+
+		//Add the table to the array
+		tables.get(0).addSeat(seatName);
+
+		FxAlert.alertInfo("Success!", "Seat Created! Name: " + seatName);
 	}
 
 }
