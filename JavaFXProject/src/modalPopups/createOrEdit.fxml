@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<VBox prefHeight="792.0" prefWidth="525.0" style="-fx-background-color: #F2F2F2; -fx-border-color: #050505; -fx-border-width: 5px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="modalPopups.createOrEditControl">
+   <children>
+      <Label alignment="TOP_CENTER" prefHeight="21.0" prefWidth="506.0" text="Which Would You Like To Change?" />
+      <ScrollPane prefHeight="425.0" prefWidth="498.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="424.0" prefWidth="511.0">
+               <children>
+                  <ListView prefHeight="425.0" prefWidth="506.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Button alignment="CENTER" mnemonicParsing="false" onAction="#createNewObject" prefHeight="75.0" prefWidth="250.0" text="Edit" textAlignment="CENTER" translateX="115.0" translateY="20.0" />
+      <Button alignment="CENTER" mnemonicParsing="false" onAction="#createNewObject" prefHeight="75.0" prefWidth="250.0" text="Add New" textAlignment="CENTER">
+         <VBox.margin>
+            <Insets left="110.0" top="50.0" />
+         </VBox.margin>
+      </Button>
+      <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeModal" prefHeight="75.0" prefWidth="250.0" text="Cancel" textAlignment="CENTER">
+         <VBox.margin>
+            <Insets left="115.0" top="35.0" />
+         </VBox.margin>
+      </Button>
+   </children>
+</VBox>
