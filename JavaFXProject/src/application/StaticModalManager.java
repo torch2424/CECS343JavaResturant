@@ -24,7 +24,7 @@ public class StaticModalManager {
 			root = loader.load();
 
 		    stage.setScene(new Scene(root));
-		    stage.setTitle("My modal window");
+		    stage.setTitle("Tables");
 		    stage.initModality(Modality.WINDOW_MODAL);
 		    stage.initOwner(
 		        ((Node)event.getSource()).getScene().getWindow() );
@@ -32,10 +32,39 @@ public class StaticModalManager {
 		    //Get our controller
 		    TablePopupControl controller = loader.<TablePopupControl>getController();
 
-		    //Call constroller Function
+		    //Call controller Function
 		    //controller.initData(customer);
 
 		    	  //Finally show the stage
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public static void seatModal(FXMLLoader loader, ActionEvent event) {
+
+		Stage stage = new Stage();
+	    Parent root;
+
+	    try {
+
+			//Get our FXML Loader
+			root = loader.load();
+
+		    stage.setScene(new Scene(root));
+		    stage.setTitle("Tables");
+		    stage.initModality(Modality.WINDOW_MODAL);
+		    stage.initOwner(
+		        ((Node)event.getSource()).getScene().getWindow() );
+
+		    //Get our controller
+		    TablePopupControl controller = loader.<TablePopupControl>getController();
+
+		    //Call controller Function
+		    //controller.initData(customer);
+
+		    //Finally show the stage
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

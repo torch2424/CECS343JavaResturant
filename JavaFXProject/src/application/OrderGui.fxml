@@ -55,7 +55,7 @@
             <Font size="18.0" />
           </font>
         </Label>
-            <Button layoutX="195.0" layoutY="153.0" mnemonicParsing="false" onAction="#createTable" text="Button" />
+            <Button layoutX="195.0" layoutY="153.0" mnemonicParsing="false" onAction="#createOrEdit" text="Button" />
       </children>
     </AnchorPane>
   </children>

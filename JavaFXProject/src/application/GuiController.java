@@ -10,44 +10,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import modalPopups.TablePopupControl;
+import modalPopups.createOrEditControl;
 
 public class GuiController {
 
-	//Function to create/edit Tables
-	@FXML
-	private void editTable(ActionEvent event) {
-
-		Stage stage = new Stage();
-	    Parent root;
-		try {
-
-			//Get our FXML Loader
-			FXMLLoader loader = new FXMLLoader(
-				    getClass().getResource("../modalPopups/tableDialog.fxml"));
-
-			root = loader.load();
-
-		    stage.setScene(new Scene(root));
-		    stage.setTitle("My modal window");
-		    stage.initModality(Modality.WINDOW_MODAL);
-		    stage.initOwner(
-		        ((Node)event.getSource()).getScene().getWindow() );
-
-		    //Get our controller
-		    TablePopupControl controller = loader.<TablePopupControl>getController();
-
-		    //Call constroller Function
-		    //controller.initData(customer);
-
-		    	  //Finally show the stage
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
 	//Function to open modal to select from a list of created objects to edit/or create a new one
+	@FXML
 	private void createOrEdit(ActionEvent event) {
 
 		Stage stage = new Stage();
@@ -56,23 +24,24 @@ public class GuiController {
 
 			//Get our FXML Loader
 			FXMLLoader loader = new FXMLLoader(
-				    getClass().getResource("../modalPopups/tableDialog.fxml"));
+				    getClass().getResource("../modalPopups/createOrEdit.fxml"));
 
 			root = loader.load();
 
 		    stage.setScene(new Scene(root));
-		    stage.setTitle("My modal window");
+		    stage.setTitle("Resturant Edit");
 		    stage.initModality(Modality.WINDOW_MODAL);
 		    stage.initOwner(
 		        ((Node)event.getSource()).getScene().getWindow() );
 
 		    //Get our controller
-		    TablePopupControl controller = loader.<TablePopupControl>getController();
+		    createOrEditControl controller = loader.<createOrEditControl>getController();
 
-		    //Call constroller Function
-		    //controller.initData(customer);
+		    //Call controller Function
+		    controller.initController("Table");
 
-		    	  //Finally show the stage
+		    //Finally show the stage
+		    stage.show();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
