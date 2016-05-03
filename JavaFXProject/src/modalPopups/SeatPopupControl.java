@@ -52,6 +52,7 @@ public class SeatPopupControl {
 
 		//Check if an item was selected
 		if(inputOrders.size() > 0) ResturantGUI.addSeat(tableID, inputName, inputOrders);
+
 		//And create the table in our state
 		ResturantGUI.addSeat(tableID, inputName);
 	}

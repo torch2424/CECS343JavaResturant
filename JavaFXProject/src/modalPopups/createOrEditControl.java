@@ -32,9 +32,6 @@ public class createOrEditControl {
 
 	@FXML // This method is called by the FXMLLoader when initialization is complete
 	void initialize() {
-
-		//Check Our values here
-	    //assert seatName != null : "No Textbox id seatName";
 	}
 
 	//Function called by user to set some values
@@ -45,11 +42,17 @@ public class createOrEditControl {
 	@FXML
 	public void createNewObject(ActionEvent event){
 
+		System.out.println("hi");
+
 		//Get our FXML Loader
 		FXMLLoader loader = new FXMLLoader(
 			    getClass().getResource("../modalPopups/tableDialog.fxml"));
 
+		//Load the modal
 		StaticModalManager.tableModal(loader, event);
+
+		//Close the stage
+		closeModal(event);
 	}
 
 

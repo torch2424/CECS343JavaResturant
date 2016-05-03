@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import modalPopups.SeatPopupControl;
 import modalPopups.TablePopupControl;
 
 public class StaticModalManager {
@@ -53,13 +54,13 @@ public class StaticModalManager {
 			root = loader.load();
 
 		    stage.setScene(new Scene(root));
-		    stage.setTitle("Tables");
+		    stage.setTitle("Seats");
 		    stage.initModality(Modality.WINDOW_MODAL);
 		    stage.initOwner(
 		        ((Node)event.getSource()).getScene().getWindow() );
 
 		    //Get our controller
-		    TablePopupControl controller = loader.<TablePopupControl>getController();
+		    SeatPopupControl controller = loader.<SeatPopupControl>getController();
 
 		    //Call controller Function
 		    //controller.initData(customer);
