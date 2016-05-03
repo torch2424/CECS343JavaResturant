@@ -4,9 +4,12 @@ import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modalPopups.SeatPopupControl;
@@ -19,6 +22,8 @@ public class StaticModalManager {
 		Stage stage = new Stage();
 	    Parent root;
 
+	    Group roots = new Group();
+
 	    try {
 
 			//Get our FXML Loader
@@ -29,6 +34,15 @@ public class StaticModalManager {
 		    stage.initModality(Modality.WINDOW_MODAL);
 		    stage.initOwner(
 		        ((Node)event.getSource()).getScene().getWindow() );
+
+		    //Table rectangle
+		    Rectangle r = new Rectangle(25,25,250,250);
+		       r.setFill(Color.BLUE);
+		       roots.getChildren().add(r);
+
+
+
+
 
 		    //Get our controller
 		    TablePopupControl controller = loader.<TablePopupControl>getController();
@@ -47,6 +61,7 @@ public class StaticModalManager {
 
 		Stage stage = new Stage();
 	    Parent root;
+	    Group roots = new Group ();
 
 	    try {
 
@@ -59,8 +74,13 @@ public class StaticModalManager {
 		    stage.initOwner(
 		        ((Node)event.getSource()).getScene().getWindow() );
 
+		    Rectangle r = new Rectangle(25,25,250,250);
+		       r.setFill(Color.BLUE);
+		       roots.getChildren().add(r);
+
 		    //Get our controller
 		    SeatPopupControl controller = loader.<SeatPopupControl>getController();
+
 
 		    //Call controller Function
 		    //controller.initData(customer);

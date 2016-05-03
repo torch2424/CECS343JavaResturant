@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.control.*?>
@@ -56,6 +57,11 @@
           </font>
         </Label>
             <Button layoutX="195.0" layoutY="153.0" mnemonicParsing="false" onAction="#createOrEdit" text="Button" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b9c0c6" height="81.0" layoutX="41.0" layoutY="20.0" onMouseClicked="#tableManage" opacity="0.7" stroke="BLACK" strokeType="INSIDE" width="46.0" />
+            <Circle fill="#35353c" layoutX="26.0" layoutY="40.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#35353c" layoutX="26.0" layoutY="76.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#35353c" layoutX="102.0" layoutY="40.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="#35353c" layoutX="101.0" layoutY="75.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
       </children>
     </AnchorPane>
   </children>
