@@ -9,8 +9,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.stage.Stage;
 import rModels.RTable;
 
 public class createOrEditControl {
@@ -70,6 +72,10 @@ public class createOrEditControl {
 	@FXML
 	public void createNewObject(ActionEvent event) {
 
+		//NEED to close a modal before creating a new one, all child stages
+		//Would be closed with it
+		closeModal(event);
+
 		FXMLLoader loader = new FXMLLoader();
 
 		if(objectType == ResturantObject.TABLE) {
@@ -92,7 +98,7 @@ public class createOrEditControl {
 		}
 	}
 
-
+	//Function to close the modal
 	@FXML
 	public void closeModal(ActionEvent event){
 
