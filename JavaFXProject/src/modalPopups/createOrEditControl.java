@@ -4,12 +4,14 @@ import application.StaticModalManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.stage.Stage;
 
 public class createOrEditControl {
+
+	public enum ResturantObject {
+		SEAT, TABLE
+	}
 
 	// fx:id="orderList"
 	@FXML
@@ -28,40 +30,48 @@ public class createOrEditControl {
 	private Button closeButton;
 
 	//Our objectType id
-	private String objectType;
+	private ResturantObject objectType;
 
 	@FXML // This method is called by the FXMLLoader when initialization is complete
 	void initialize() {
 	}
 
 	//Function called by user to set some values
-	public void initController(String inputType) {
+	public void initController(ResturantObject inputType) {
 		objectType = inputType;
 	}
 
+	//Function to open our modal
 	@FXML
-	public void createNewObject(ActionEvent event){
+	public void createNewObject(ActionEvent event) {
 
-		System.out.println("hi");
+		FXMLLoader loader = new FXMLLoader();
 
-		//Get our FXML Loader
-		FXMLLoader loader = new FXMLLoader(
-			    getClass().getResource("../modalPopups/tableDialog.fxml"));
+		if(objectType == ResturantObject.TABLE) {
 
-		//Load the modal
-		StaticModalManager.tableModal(loader, event);
+			//Get our FXML Loader
+			loader = new FXMLLoader(
+				    getClass().getResource("../modalPopups/tableDialog.fxml"));
 
-		//Close the stage
-		closeModal(event);
+			//Load the modal
+			StaticModalManager.tableModal(loader, event);
+		}
+		else if(objectType == ResturantObject.SEAT) {
+
+			//Get our FXML Loader
+			loader = new FXMLLoader(
+				    getClass().getResource("../modalPopups/seatDialog.fxml"));
+
+			//Load the modal
+			StaticModalManager.seatModal(loader, event);
+		}
 	}
 
 
 	@FXML
 	public void closeModal(ActionEvent event){
 
-		//Simply close the window
-		Node source = (Node) event.getSource();
-		Stage stage = (Stage) source.getScene().getWindow();
-		stage.close();
+		//Call the close modal static
+		StaticModalManager.closeModal(event);
 	}
 }
