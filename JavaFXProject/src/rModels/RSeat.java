@@ -7,30 +7,40 @@ package rModels;
  */
 public class RSeat {
 
-	private int seatNum;
+	//Static id generator for seats
+	public static int seatID;
+
+	//Our attributes
+	private String seatNum;
 	private String seatName;
 	ROrder order;
 
+	//Overloading Constructors
 	public RSeat () {
 
-		seatNum= 0;
-		seatName= " ";
+		this("");
 	}
 
-	public int getSeatNum() {
+	public RSeat(String name) {
+
+		//Initialize our Seat
+		seatName = name;
+		seatID++;
+		seatNum = seatName + "" + seatID;
+	}
+
+	public String getSeatNum() {
 		return seatNum;
 	}
 
-	public void setSeatNum(int seatNum) {
-		this.seatNum = seatNum;
-	}
 
 	public String getSeatName() {
 		return seatName;
 	}
 
-	public void setSeatName(String seatName) {
-		this.seatName = seatName;
+	//Function to set an order to the seat
+	public void addOrderToSeat(ROrder input) {
+		order = input;
 	}
 
 }
