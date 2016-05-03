@@ -51,12 +51,13 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-        <Label alignment="CENTER" layoutX="155.0" layoutY="177.0" style="&#10;" text="Drag components from Library here…" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
-          <font>
-            <Font size="18.0" />
-          </font>
-        </Label>
-            <Button layoutX="195.0" layoutY="153.0" mnemonicParsing="false" onAction="#createOrEdit" text="Button" />
+            <Button layoutX="86.0" layoutY="146.0" mnemonicParsing="false" onAction="#tableManage" text="TABLES" />
+            <Button layoutX="93.0" layoutY="69.0" mnemonicParsing="false" onAction="#seatManage" text="SEATS" />
+            <ScrollPane layoutX="187.0" prefHeight="368.0" prefWidth="453.0">
+              <content>
+                <AnchorPane fx:id="tableView" minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="451.0" />
+              </content>
+            </ScrollPane>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b9c0c6" height="81.0" layoutX="41.0" layoutY="20.0" onMouseClicked="#tableManage" opacity="0.7" stroke="BLACK" strokeType="INSIDE" width="46.0" />
             <Circle fill="#35353c" layoutX="26.0" layoutY="40.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle fill="#35353c" layoutX="26.0" layoutY="76.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />

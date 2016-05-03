@@ -47,6 +47,11 @@ public class ResturantGUI extends Application {
 		}
 	}
 
+	//Getter setters for arrays
+	public static ArrayList<RTable> getTables() {
+		return tables;
+	}
+
 	public static void addTable(String name, int size) {
 
 		//Add the table to the array
