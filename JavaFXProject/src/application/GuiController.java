@@ -38,7 +38,7 @@ public class GuiController {
 		    createOrEditControl controller = loader.<createOrEditControl>getController();
 
 		    //Call controller Function
-		    controller.initController("Table");
+		    controller.initController(createOrEditControl.ResturantObject.TABLE);
 
 		    //Finally show the stage
 		    stage.show();
@@ -47,4 +47,6 @@ public class GuiController {
 			e.printStackTrace();
 		}
 	}
+
+
 }
