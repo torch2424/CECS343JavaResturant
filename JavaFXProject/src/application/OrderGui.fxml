@@ -24,7 +24,7 @@
          <menus>
            <Menu mnemonicParsing="false" text="Window">
              <items>
-               <MenuItem mnemonicParsing="false" text="Quit" />
+               <MenuItem mnemonicParsing="false" onAction="#closeWindow" text="Quit" />
              </items>
            </Menu>
          </menus>

@@ -216,6 +216,6 @@ public class GuiController {
 	public void closeWindow(ActionEvent event){
 
 		//Call the close modal static
-		StaticModalManager.closeModal(event);
+		System.exit(0);
 	}
 }
