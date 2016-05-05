@@ -153,6 +153,35 @@ public class Menu {
 
 		//specialties
 		specialties.add(panRoast_Half_Chicken);
+		specialties.add(chicken_Chardonnay);
+		specialties.add(chicken_Francaise);
+		specialties.add(pork_Chop);
+		specialties.add(duck);
+		specialties.add(lambTBone);
+		specialties.add(veal_Piccata);
+		specialties.add(veal_Parmesan);
+		specialties.add(veal_Marsala);
+		specialties.add(primeSteak);
+		specialties.add(filet_Mignon);
+		specialties.add(ribeyeSteak);
+
+		//salads
+		salads.add(mixedGreens);
+		salads.add(spinach);
+		salads.add(beet);
+		salads.add(wedge);
+		salads.add(caesar);
+		salads.add(chickenCaesar);
+		salads.add(calamariCaesar);
+		salads.add(shrimpCaesar);
+		salads.add(salmonCaesar);
+
+		//dressings
+		dressings.add(ranch);
+		dressings.add(italian);
+		dressings.add(vinegret);
+		dressings.add(lemon);
+
 
 
 	}
