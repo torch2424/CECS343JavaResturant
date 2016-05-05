@@ -1,14 +1,13 @@
 package modalPopups;
 
 import application.ResturantGUI;
+import application.StaticModalManager;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 public class SeatPopupControl {
 
@@ -60,9 +59,7 @@ public class SeatPopupControl {
 	@FXML
 	public void closeModal(ActionEvent event){
 
-		//Simply close the window
-		Node source = (Node) event.getSource();
-		Stage stage = (Stage) source.getScene().getWindow();
-		stage.close();
+		//Call the close modal static
+		StaticModalManager.closeModal(event);
 	}
 }
