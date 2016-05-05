@@ -1,11 +1,19 @@
 package modalPopups;
 
+import java.util.ArrayList;
+
+import application.ResturantGUI;
 import application.StaticModalManager;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.stage.Stage;
+import rModels.RTable;
 
 public class createOrEditControl {
 
@@ -16,6 +24,9 @@ public class createOrEditControl {
 	// fx:id="orderList"
 	@FXML
 	ListView<String> ObjectList;
+
+	//Our list of items
+	ObservableList<String> currentItems;
 
 	//Edit button
 	@FXML
@@ -38,12 +49,32 @@ public class createOrEditControl {
 
 	//Function called by user to set some values
 	public void initController(ResturantObject inputType) {
+
+
 		objectType = inputType;
+
+		//Fill the view with objects of the type
+		ObservableList<String> currentItems = FXCollections.observableArrayList();
+
+		if(objectType == ResturantObject.TABLE) {
+
+			ArrayList<RTable> tableList = ResturantGUI.getTables();
+			for(int i = 0; i < tableList.size(); i++) {
+				currentItems.add(tableList.get(i).getTableName());
+			}
+		}
+
+		//Set the items if not empty
+		if(currentItems.size() > 0) ObjectList.setItems(currentItems);
 	}
 
 	//Function to open our modal
 	@FXML
 	public void createNewObject(ActionEvent event) {
+
+		//NEED to close a modal before creating a new one, all child stages
+		//Would be closed with it
+		closeModal(event);
 
 		FXMLLoader loader = new FXMLLoader();
 
@@ -67,7 +98,7 @@ public class createOrEditControl {
 		}
 	}
 
-
+	//Function to close the modal
 	@FXML
 	public void closeModal(ActionEvent event){
 
