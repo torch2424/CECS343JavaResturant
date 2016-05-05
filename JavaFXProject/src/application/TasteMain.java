@@ -44,12 +44,6 @@ public class TasteMain extends Application {
 			primaryStage.setTitle("Resturant Application");
 			primaryStage.show();
 
-			//Add 4 tables for Leaf
-			tables.add(new RTable("Table1"));
-			tables.add(new RTable("Table4"));
-			tables.add(new RTable("Table4"));
-			tables.add(new RTable("Table4"));
-
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -65,7 +59,8 @@ public class TasteMain extends Application {
 		//Add the table to the array
 		tables.add(new RTable(name, size));
 
-		FxAlert.alertInfo("Success!", "Table Created! Name: " + name + ", Size: " + size);
+		//Alert Not Needed
+		//FxAlert.alertInfo("Success!", "Table Created! Name: " + name + ", Size: " + size);
 	}
 
 	//Seat Functions

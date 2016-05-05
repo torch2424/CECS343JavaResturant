@@ -19,97 +19,39 @@
 
 <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GuiController">
    <children>
-   
-   	    <MenuBar VBox.vgrow="NEVER">
-         <menus>
-           <Menu mnemonicParsing="false" text="Window">
-             <items>
-               <MenuItem mnemonicParsing="false" onAction="#closeWindow" text="Quit" />
-             </items>
-           </Menu>
-         </menus>
-       </MenuBar>
-   
-     <TabPane maxHeight="600.0" prefHeight="600.0" tabClosingPolicy="UNAVAILABLE">
-       <tabs>
-         <Tab text="Tables">
-           <content>
-             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                    <children>
-                       <Accordion layoutX="14.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="770.0">
-                         <panes>
-                           <TitledPane animated="false" text="Table 1">
-                             <content>
-                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                      <children>
-                                         <Rectangle fx:id="tableOneRectangle" arcHeight="5.0" arcWidth="5.0" fill="#1fff20" height="44.0" stroke="BLACK" strokeType="INSIDE" width="201.0" />
-                                         <Button layoutY="44.0" mnemonicParsing="false" onAction="#readyButtonTableOneClicked" prefHeight="25.0" prefWidth="67.0" text="Ready" />
-                                         <Button layoutX="67.0" layoutY="44.0" mnemonicParsing="false" onAction="#occupyButtonTableOneClicked" prefHeight="25.0" prefWidth="71.0" text="Occ'd" />
-                                         <SplitMenuButton fx:id="menuButtonOne" layoutY="69.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Items Ordered" />
-                                         <Button layoutX="1.0" layoutY="119.0" mnemonicParsing="false" onAction="#clearTable" prefHeight="25.0" prefWidth="199.0" text="Clear Table" />
-                                         <Button layoutX="-1.0" layoutY="94.0" mnemonicParsing="false" onAction="#addMenuOne" prefHeight="25.0" prefWidth="201.0" text="Add Item" />
-                                         <Button layoutX="138.0" layoutY="44.0" mnemonicParsing="false" onAction="#dirtyButtonTableOneClick" prefHeight="25.0" prefWidth="62.0" text="Dirty" />
-                                      </children>
-                                   </AnchorPane>
-                             </content>
-                           </TitledPane>
-                           <TitledPane animated="false" text="Table 2">
-                             <content>
-                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                      <children>
-                                         <Rectangle fx:id="tableTwoRectangle" arcHeight="5.0" arcWidth="5.0" fill="#1fff20" height="44.0" stroke="BLACK" strokeType="INSIDE" width="201.0" />
-                                         <Button layoutY="44.0" mnemonicParsing="false" onAction="#readyButtonTableTwoClicked" prefHeight="25.0" prefWidth="67.0" text="Ready" />
-                                         <Button layoutX="67.0" layoutY="44.0" mnemonicParsing="false" onAction="#occupyButtonTableTwoClicked" prefHeight="25.0" prefWidth="71.0" text="Occ'd" />
-                                         <SplitMenuButton fx:id="menuButtonTwo" layoutY="69.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Items Ordered" />
-                                         <Button layoutX="1.0" layoutY="119.0" mnemonicParsing="false" onAction="#clearTableTwo" prefHeight="25.0" prefWidth="199.0" text="Clear Table" />
-                                         <Button layoutX="-1.0" layoutY="94.0" mnemonicParsing="false" onAction="#addMenuTwo" prefHeight="25.0" prefWidth="201.0" text="Add Item" />
-                                         <Button layoutX="138.0" layoutY="44.0" mnemonicParsing="false" onAction="#dirtyButtonTableTwoClick" prefHeight="25.0" prefWidth="62.0" text="Dirty" />
-                                      </children>
-                                   </AnchorPane>
-                             </content>
-                           </TitledPane>
-                           <TitledPane animated="false" text="Table 3">
-                             <content>
-                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                      <children>
-                                         <Rectangle fx:id="tableThreeRectangle" arcHeight="5.0" arcWidth="5.0" fill="#1fff20" height="44.0" stroke="BLACK" strokeType="INSIDE" width="201.0" />
-                                         <Button layoutY="44.0" mnemonicParsing="false" onAction="#readyButtonTableThreeClicked" prefHeight="25.0" prefWidth="67.0" text="Ready" />
-                                         <Button layoutX="67.0" layoutY="44.0" mnemonicParsing="false" onAction="#occupyButtonTableThreeClicked" prefHeight="25.0" prefWidth="71.0" text="Occ'd" />
-                                         <SplitMenuButton fx:id="menuButtonThree" layoutY="69.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Items Ordered" />
-                                         <Button layoutX="1.0" layoutY="119.0" mnemonicParsing="false" onAction="#clearTableThree" prefHeight="25.0" prefWidth="199.0" text="Clear Table" />
-                                         <Button layoutX="-1.0" layoutY="94.0" mnemonicParsing="false" onAction="#addMenuThree" prefHeight="25.0" prefWidth="201.0" text="Add Item" />
-                                         <Button layoutX="138.0" layoutY="44.0" mnemonicParsing="false" onAction="#dirtyButtonTableThreeClick" prefHeight="25.0" prefWidth="62.0" text="Dirty" />
-                                      </children>
-                                    </AnchorPane>
-                             </content>
-                           </TitledPane>
-                             <TitledPane animated="false" text="Table 4">
-                               <content>
-                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                      <children>
-                                         <Rectangle fx:id="tableFourRectangle" arcHeight="5.0" arcWidth="5.0" fill="#1fff20" height="44.0" stroke="BLACK" strokeType="INSIDE" width="201.0" />
-                                         <Button layoutY="44.0" mnemonicParsing="false" onAction="#readyButtonTableFourClicked" prefHeight="25.0" prefWidth="67.0" text="Ready" />
-                                         <Button layoutX="67.0" layoutY="44.0" mnemonicParsing="false" onAction="#occupyButtonTableFourClicked" prefHeight="25.0" prefWidth="71.0" text="Occ'd" />
-                                         <SplitMenuButton fx:id="menuButtonFour" layoutY="69.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Items Ordered" />
-                                         <Button layoutX="1.0" layoutY="119.0" mnemonicParsing="false" onAction="#clearTableFour" prefHeight="25.0" prefWidth="199.0" text="Clear Table" />
-                                         <Button layoutX="-1.0" layoutY="94.0" mnemonicParsing="false" onAction="#addMenuFour" prefHeight="25.0" prefWidth="201.0" text="Add Item" />
-                                         <Button layoutX="138.0" layoutY="44.0" mnemonicParsing="false" onAction="#dirtyButtonTableFourClick" prefHeight="25.0" prefWidth="62.0" text="Dirty" />
-                                      </children>
-                                    </AnchorPane>
-                               </content>
-                             </TitledPane>
-                         </panes>
-                       </Accordion>
-                    </children>
-                  </AnchorPane>
-           </content>
-         </Tab>
-         <Tab text="Data">
-           <content>
-             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-           </content>
-         </Tab>
-       </tabs>
-     </TabPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+         
+         	    <MenuBar>
+               <menus>
+                 <Menu mnemonicParsing="false" text="Window">
+                   <items>
+                     <MenuItem mnemonicParsing="false" onAction="#closeWindow" text="Quit" />
+                   </items>
+                 </Menu>
+               </menus>
+             </MenuBar>
+         
+           <TabPane layoutY="32.0" maxHeight="600.0" prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+             <tabs>
+               <Tab text="Tables">
+                 <content>
+                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                          <children>
+                             <Accordion fx:id="tableAccordion" layoutX="14.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="770.0" />
+                              <Button layoutX="7.0" layoutY="470.0" mnemonicParsing="false" onAction="#addNewTable" prefHeight="73.0" prefWidth="288.0" text="Add Table" />
+                          </children>
+                        </AnchorPane>
+                 </content>
+               </Tab>
+               <Tab text="Data">
+                 <content>
+                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                 </content>
+               </Tab>
+             </tabs>
+           </TabPane>
+         </children>
+      </AnchorPane>
    </children>
 </VBox>

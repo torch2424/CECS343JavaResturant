@@ -5,4 +5,6 @@
 <fullyQualifiedTypeName name="fxtools.FxAlert"/>
 <fullyQualifiedTypeName name="rModels.Menu"/>
 <fullyQualifiedTypeName name="javafx.scene.control.ListView"/>
+<fullyQualifiedTypeName name="application.TasteMain"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>
