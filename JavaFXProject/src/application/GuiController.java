@@ -121,26 +121,37 @@ public class GuiController {
 	}
 
 
-	public void addMenuOne() {
-		currentMenuButton = menuButtonOne;
-		newItemTextField.setDisable(false);
-		newItemSaveButton.setDisable(false);
+	public void addMenuOne(ActionEvent event) {
+
+		//Item Modal
+		//Get our FXML Loader
+		FXMLLoader loader = new FXMLLoader(
+			    getClass().getResource("../modalPopups/itemDialog.fxml"));
+		StaticModalManager.ItemModal(loader, event);
+
+//		currentMenuButton = menuButtonOne;
+//		newItemTextField.setDisable(false);
+//		newItemSaveButton.setDisable(false);
 	}
+
 	public void addMenuTwo() {
 		currentMenuButton = menuButtonTwo;
 		newItemTextField.setDisable(false);
 		newItemSaveButton.setDisable(false);
 	}
+
 	public void addMenuThree() {
 		currentMenuButton = menuButtonThree;
 		newItemTextField.setDisable(false);
 		newItemSaveButton.setDisable(false);
 	}
+
 	public void addMenuFour() {
 		currentMenuButton = menuButtonFour;
 		newItemTextField.setDisable(false);
 		newItemSaveButton.setDisable(false);
 	}
+
 	public void saveNewItem() {
 		MenuItem newMenuItem = new MenuItem(newItemTextField.getText());
 		newMenuItem.setOnAction(e -> {
@@ -200,5 +211,11 @@ public class GuiController {
 		tableFourRectangle.setFill(Color.YELLOW);
 	}
 
+	//Close Window
+	@FXML
+	public void closeWindow(ActionEvent event){
 
+		//Call the close modal static
+		System.exit(0);
+	}
 }

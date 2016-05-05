@@ -14,14 +14,21 @@ public class RTable {
 
 	/** number of table **/
 	private String tableNum;
+
 	/** name of the table **/
 	private String tableName;
+
 	/** check condition of table (clean or dirty) */
 	private boolean tableClean;
+
 	/** check status of table (if available, in use) */
 	private boolean tableStatus;
+
 	/** number of seats in a table **/
 	private ArrayList<RSeat> tableSeats;
+
+	//Orders at the table
+	private ArrayList<RItem> tableItems;
 
 	//Overloading Constructors
 	public RTable() {
@@ -53,6 +60,9 @@ public class RTable {
 		for(int i = 0; i < number; i ++) {
 			tableSeats.add(new RSeat());
 		}
+
+		//Instantiate our table items
+		tableItems = new ArrayList<RItem>();
 	}
 
 
@@ -101,7 +111,12 @@ public class RTable {
 		} else {
 			System.out.println("Table is full");
 		}
-
 	}
 
+	/** add the order to the table**/
+	public void addOrder(RItem theItem) {
+
+		//Add the item to the array
+		tableItems.add(theItem);
+	}
 }

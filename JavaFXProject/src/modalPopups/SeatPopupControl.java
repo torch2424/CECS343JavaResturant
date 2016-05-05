@@ -1,6 +1,6 @@
 package modalPopups;
 
-import application.ResturantGUI;
+import application.TasteMain;
 import application.StaticModalManager;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -50,10 +50,10 @@ public class SeatPopupControl {
 		ObservableList<String> inputOrders = orderList.getSelectionModel().getSelectedItems();
 
 		//Check if an item was selected
-		if(inputOrders.size() > 0) ResturantGUI.addSeat(tableID, inputName, inputOrders);
+		if(inputOrders.size() > 0) TasteMain.addSeat(tableID, inputName);
 
 		//And create the table in our state
-		ResturantGUI.addSeat(tableID, inputName);
+		TasteMain.addSeat(tableID, inputName);
 	}
 
 	@FXML
