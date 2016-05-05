@@ -30,6 +30,32 @@ public class GuiController {
 	@FXML
 	AnchorPane tableView;
 
+	//Add a table
+	@FXML
+	public void addNewTable(ActionEvent event) throws IOException {
+
+		//Load a new Tables
+		FXMLLoader loader = new FXMLLoader(
+			    getClass().getResource("../guiElements/tableGui.fxml"));
+		tableAccordion.getPanes().add(loader.load());
+
+		//Add it to our main Controllers
+		TasteMain.addTable("Table" + (TasteMain.getTables().size() + 1), 6);
+
+		//Edit the table status
+	    TableController controller = loader.<TableController>getController();
+	    controller.initController(TasteMain.getTables().get(TasteMain.getTables().size() - 1).getTableName());
+
+	}
+
+	//Close Window
+	@FXML
+	public void closeWindow(ActionEvent event){
+
+		//Call the close modal static
+		System.exit(0);
+	}
+
 	//Table Editor
 	@FXML
 	private void tableManage(ActionEvent event) {
@@ -84,31 +110,5 @@ public class GuiController {
 
 			StaticModalManager.modalError();
 		}
-	}
-
-	//Add a table
-	@FXML
-	public void addNewTable(ActionEvent event) throws IOException {
-
-		//Load a new Tables
-		FXMLLoader loader = new FXMLLoader(
-			    getClass().getResource("../guiElements/tableGui.fxml"));
-		tableAccordion.getPanes().add(loader.load());
-
-		//Add it to our main Controllers
-		TasteMain.addTable("Table" + (TasteMain.getTables().size() + 1), 6);
-
-		//Edit the table status
-	    TableController controller = loader.<TableController>getController();
-	    controller.initController(TasteMain.getTables().get(TasteMain.getTables().size() - 1).getTableName());
-
-	}
-
-	//Close Window
-	@FXML
-	public void closeWindow(ActionEvent event){
-
-		//Call the close modal static
-		System.exit(0);
 	}
 }
