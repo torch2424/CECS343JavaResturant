@@ -3,4 +3,6 @@
 <fullyQualifiedTypeName name="javafx.scene.layout.StackPane"/>
 <fullyQualifiedTypeName name="javafx.scene.Node"/>
 <fullyQualifiedTypeName name="fxtools.FxAlert"/>
+<fullyQualifiedTypeName name="rModels.Menu"/>
+<fullyQualifiedTypeName name="javafx.scene.control.ListView"/>
 </qualifiedTypeNameHistroy>

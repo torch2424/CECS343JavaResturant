@@ -211,5 +211,11 @@ public class GuiController {
 		tableFourRectangle.setFill(Color.YELLOW);
 	}
 
+	//Close Window
+	@FXML
+	public void closeWindow(ActionEvent event){
 
+		//Call the close modal static
+		StaticModalManager.closeModal(event);
+	}
 }

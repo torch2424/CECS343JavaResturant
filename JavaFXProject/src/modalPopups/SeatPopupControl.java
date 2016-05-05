@@ -50,7 +50,7 @@ public class SeatPopupControl {
 		ObservableList<String> inputOrders = orderList.getSelectionModel().getSelectedItems();
 
 		//Check if an item was selected
-		if(inputOrders.size() > 0) TasteMain.addSeat(tableID, inputName, inputOrders);
+		if(inputOrders.size() > 0) TasteMain.addSeat(tableID, inputName);
 
 		//And create the table in our state
 		TasteMain.addSeat(tableID, inputName);
