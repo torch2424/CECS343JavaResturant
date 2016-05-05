@@ -1,23 +1,27 @@
 package modalPopups;
 
-import application.TasteMain;
 import application.StaticModalManager;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import rModels.Menu;
+import rModels.RItem;
 
 public class ItemPopupControl {
 
-	// fx:id="tableName"
+	//Our item lists
 	@FXML
-	private TextField seatName;
+	ListView<String> appListView;
+	@FXML
+	ListView<String> entreeListView;
+	@FXML
+	ListView<String> dessertListView;
 
-	// fx:id="orderList"
-	@FXML
-	ListView<String> orderList;
+	//Our menu
+	Menu foodMenu;
 
 	//Submit button
 	@FXML
@@ -27,33 +31,34 @@ public class ItemPopupControl {
 	@FXML
 	private Button closeButton;
 
-	//Our table id
-	private String tableID;
-
 	@FXML // This method is called by the FXMLLoader when initialization is complete
 	void initialize() {
-
-		//Check Our values here
-	    assert seatName != null : "No Textbox id seatName";
 	}
 
 	//Function called by user to set some values
-	public void initController(String id) {
-		tableID = id;
+	public void initController(String tableId) {
+
+		//Initialize our Menu
+		foodMenu = new Menu();
+
+		//Initialize our lists
+
+		ObservableList<String> appList = FXCollections.observableArrayList();
+		ObservableList<String> entreeList= FXCollections.observableArrayList();
+		ObservableList<String> dessertList= FXCollections.observableArrayList();
+
+		//Fill our views
+		for(int i = 0; i < foodMenu.getAppetizers().size(); ++i){
+			appList.add(foodMenu.getAppetizers().get(i).getName());
+		}
+
+		appListView.setItems(appList);
 	}
 
 	@FXML
-	public void submitSeat(ActionEvent event){
+	public void addItem(ActionEvent event){
 
-		//Get our values
-		String inputName = seatName.getText();
-		ObservableList<String> inputOrders = orderList.getSelectionModel().getSelectedItems();
-
-		//Check if an item was selected
-		if(inputOrders.size() > 0) TasteMain.addSeat(tableID, inputName, inputOrders);
-
-		//And create the table in our state
-		TasteMain.addSeat(tableID, inputName);
+		//Get our selected items
 	}
 
 	@FXML

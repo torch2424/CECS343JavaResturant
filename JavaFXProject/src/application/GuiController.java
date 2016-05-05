@@ -121,10 +121,17 @@ public class GuiController {
 	}
 
 
-	public void addMenuOne() {
-		currentMenuButton = menuButtonOne;
-		newItemTextField.setDisable(false);
-		newItemSaveButton.setDisable(false);
+	public void addMenuOne(ActionEvent event) {
+
+		//Item Modal
+		//Get our FXML Loader
+		FXMLLoader loader = new FXMLLoader(
+			    getClass().getResource("../modalPopups/itemDialog.fxml"));
+		StaticModalManager.ItemModal(loader, event);
+
+//		currentMenuButton = menuButtonOne;
+//		newItemTextField.setDisable(false);
+//		newItemSaveButton.setDisable(false);
 	}
 
 	public void addMenuTwo() {

@@ -25,12 +25,9 @@ public class createOrEditControl {
 	@FXML
 	ListView<String> ObjectList;
 
-	//Our list of items
-	ObservableList<String> currentItems;
-
 	//Edit button
 	@FXML
-	private Button editButto;
+	private Button editButton;
 
 	//New button
 	@FXML

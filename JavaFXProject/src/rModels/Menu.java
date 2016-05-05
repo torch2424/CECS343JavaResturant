@@ -157,4 +157,11 @@ public class Menu {
 
 	}
 
+	//Getters for arrays
+	public ArrayList<RItem> getAppetizers() {
+
+		//Return the appetizers
+		return appetizers;
+	}
+
 }

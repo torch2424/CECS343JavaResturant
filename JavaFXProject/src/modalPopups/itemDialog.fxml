@@ -6,26 +6,32 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<VBox prefHeight="792.0" prefWidth="525.0" style="-fx-background-color: #F2F2F2; -fx-border-color: #050505; -fx-border-width: 5px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="modalPopups.TablePopupControl">
+<VBox prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #F2F2F2; -fx-border-color: #050505; -fx-border-width: 5px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="modalPopups.ItemPopupControl">
    <children>
-      <Label alignment="TOP_CENTER" prefHeight="21.0" prefWidth="506.0" text="Edit Seat And Orders" />
-      <Label prefHeight="32.0" prefWidth="95.0" text="Name" />
-      <TextField id="tableName" fx:id="tableName" promptText="Enter Name Here" />
-      <Label prefHeight="32.0" prefWidth="150.0" text="Order (Optional)" />
-      <ScrollPane prefHeight="425.0" prefWidth="498.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="424.0" prefWidth="511.0">
+      <AnchorPane prefHeight="600.0" prefWidth="600.0">
+         <children>
+            <Button fx:id="closeButton" layoutX="144.0" layoutY="540.0" mnemonicParsing="false" onAction="#closeModal" prefHeight="50.0" prefWidth="303.0" text="Close" textAlignment="CENTER" />
+            <Label alignment="TOP_CENTER" layoutX="44.0" layoutY="14.0" prefHeight="21.0" prefWidth="506.0" text="Add Items" />
+            <Button alignment="CENTER" layoutX="145.0" layoutY="487.0" mnemonicParsing="false" onAction="#addItem" prefHeight="44.0" prefWidth="303.0" text="Submit" textAlignment="CENTER" />
+            <AnchorPane layoutX="14.0" layoutY="70.0" maxWidth="-Infinity" prefHeight="417.0" prefWidth="161.0">
                <children>
-                  <ListView prefHeight="425.0" prefWidth="506.0" />
+                  <Label alignment="TOP_CENTER" layoutY="4.0" prefHeight="21.0" prefWidth="161.0" text="Appetizers" />
+                  <ListView fx:id="appListView" layoutY="31.0" prefHeight="386.0" prefWidth="161.0" />
                </children>
             </AnchorPane>
-        </content>
-      </ScrollPane>
-      <Button alignment="CENTER" mnemonicParsing="false" onAction="#submitTable" prefHeight="75.0" prefWidth="250.0" text="Submit" textAlignment="CENTER" translateX="115.0" translateY="20.0" />
-      <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closeModal" prefHeight="75.0" prefWidth="250.0" text="Close" textAlignment="CENTER">
-         <VBox.margin>
-            <Insets left="115.0" top="75.0" />
-         </VBox.margin>
-      </Button>
+            <AnchorPane layoutX="215.0" layoutY="70.0" maxWidth="-Infinity" prefHeight="417.0" prefWidth="161.0">
+               <children>
+                  <Label alignment="TOP_CENTER" layoutY="4.0" prefHeight="21.0" prefWidth="161.0" text="Entrees" />
+                  <ListView fx:id="entreeListView" layoutY="31.0" prefHeight="386.0" prefWidth="161.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="415.0" layoutY="70.0" maxWidth="-Infinity" prefHeight="417.0" prefWidth="161.0">
+               <children>
+                  <Label alignment="TOP_CENTER" layoutY="4.0" prefHeight="21.0" prefWidth="161.0" text="Desserts" />
+                  <ListView fx:id="dessertListView" layoutY="31.0" prefHeight="386.0" prefWidth="161.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
    </children>
 </VBox>

@@ -9,11 +9,46 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import modalPopups.ItemPopupControl;
 import modalPopups.SeatPopupControl;
 import modalPopups.TablePopupControl;
 import modalPopups.createOrEditControl.ResturantObject;
 
 public class StaticModalManager {
+
+	public static void ItemModal(FXMLLoader loader, ActionEvent event) {
+
+	    //create the modal
+	    Stage stage = new Stage();
+	    Parent root;
+	    //Group roots = new Group ();
+
+	    try {
+
+			//Get our FXML Loader
+			root = loader.load();
+
+		    stage.setScene(new Scene(root));
+		    stage.setTitle("New Item");
+		    stage.initModality(Modality.WINDOW_MODAL);
+		    stage.initOwner(
+		        ((Node)event.getSource()).getScene().getWindow() );
+
+		    //Finally show the stage
+		    stage.show();
+
+		    //Get our controller
+		    ItemPopupControl controller = loader.<ItemPopupControl>getController();
+
+		    controller.initController("tableIdTest");
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+			StaticModalManager.modalError();
+		}
+	}
 
 	public static void tableModal(FXMLLoader loader, ActionEvent event) {
 
