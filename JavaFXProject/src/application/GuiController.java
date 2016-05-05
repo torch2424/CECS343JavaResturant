@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitMenuButton;
@@ -26,6 +27,10 @@ public class GuiController {
 	public void setMainScene(Scene pScene){
 		mainScene = pScene;
 	}
+
+	//Our Table Accordian
+	@FXML
+	private Accordion tableAccordion;
 
 	@FXML
 	private Rectangle tableOneRectangle;
@@ -209,6 +214,19 @@ public class GuiController {
 	}
 	public void dirtyButtonTableFourClick() {
 		tableFourRectangle.setFill(Color.YELLOW);
+	}
+
+	//Add a table
+	@FXML
+	public void addNewTable(ActionEvent event) throws IOException {
+
+		System.out.println("Hello!");
+
+		//Load a new Tables
+		FXMLLoader loader = new FXMLLoader(
+			    getClass().getResource("../guiElements/tableGui.fxml"));
+		tableAccordion.getPanes().add(loader.load());
+
 	}
 
 	//Close Window
