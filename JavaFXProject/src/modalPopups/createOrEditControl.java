@@ -2,7 +2,7 @@ package modalPopups;
 
 import java.util.ArrayList;
 
-import application.ResturantGUI;
+import application.TasteMain;
 import application.StaticModalManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -58,7 +58,7 @@ public class createOrEditControl {
 
 		if(objectType == ResturantObject.TABLE) {
 
-			ArrayList<RTable> tableList = ResturantGUI.getTables();
+			ArrayList<RTable> tableList = TasteMain.getTables();
 			for(int i = 0; i < tableList.size(); i++) {
 				currentItems.add(tableList.get(i).getTableName());
 			}

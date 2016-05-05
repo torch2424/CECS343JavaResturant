@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
-public class SeatPopupControl {
+public class ItemPopupControl {
 
 	// fx:id="tableName"
 	@FXML

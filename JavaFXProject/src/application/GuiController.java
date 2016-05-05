@@ -126,21 +126,25 @@ public class GuiController {
 		newItemTextField.setDisable(false);
 		newItemSaveButton.setDisable(false);
 	}
+
 	public void addMenuTwo() {
 		currentMenuButton = menuButtonTwo;
 		newItemTextField.setDisable(false);
 		newItemSaveButton.setDisable(false);
 	}
+
 	public void addMenuThree() {
 		currentMenuButton = menuButtonThree;
 		newItemTextField.setDisable(false);
 		newItemSaveButton.setDisable(false);
 	}
+
 	public void addMenuFour() {
 		currentMenuButton = menuButtonFour;
 		newItemTextField.setDisable(false);
 		newItemSaveButton.setDisable(false);
 	}
+
 	public void saveNewItem() {
 		MenuItem newMenuItem = new MenuItem(newItemTextField.getText());
 		newMenuItem.setOnAction(e -> {

@@ -14,7 +14,7 @@ import rModels.RSeat;
 import rModels.RTable;
 
 
-public class ResturantGUI extends Application {
+public class TasteMain extends Application {
 
 	//Our Stage
 	Stage guiStage;
@@ -36,7 +36,7 @@ public class ResturantGUI extends Application {
 		try {
 
 			guiStage = primaryStage;
-			VBox page = (VBox) FXMLLoader.load(ResturantGUI.class.getResource("OrderGui.fxml"));
+			VBox page = (VBox) FXMLLoader.load(TasteMain.class.getResource("OrderGui.fxml"));
 			Scene scene = new Scene(page);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Resturant Application");
