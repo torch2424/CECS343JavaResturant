@@ -1,5 +1,7 @@
 package guiElements;
 
+import java.util.ArrayList;
+
 import application.StaticModalManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,6 +10,7 @@ import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TitledPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import rModels.RItem;
 
 
 public class TableController {
@@ -36,7 +39,18 @@ public class TableController {
 
 
 	//Add order to the table
-	public void addTableOrder(ActionEvent event) {
+	public void addTableOrder(ArrayList<RItem> orders) {
+
+		//Loop through the orders and add
+		MenuItem newMenuItem = new MenuItem(newItemTextField.getText());
+		newMenuItem.setOnAction(e -> {
+			newMenuItem.setText(newMenuItem.getText() + " - SERVED");
+		});
+		tableOrders.getItems().add(newMenuItem);
+	}
+
+	//Bring Up the item dialog
+	public void itemDialog(ActionEvent event) {
 
 		//Item Modal
 		//Get our FXML Loader
@@ -62,19 +76,5 @@ public class TableController {
 		tableStatusColor.setFill(Color.GREEN);
 		tableOrders.getItems().clear();
 	}
-
-
-
-
-
-//	MenuItem newMenuItem = new MenuItem(newItemTextField.getText());
-//	newMenuItem.setOnAction(e -> {
-//		newMenuItem.setText(newMenuItem.getText() + " - SERVED");
-//	});
-//	currentMenuButton.getItems().addAll(newMenuItem);
-//	newItemTextField.clear();
-//	newItemTextField.setPromptText("New item...");
-//	newItemTextField.setDisable(true);
-//	newItemSaveButton.setDisable(true);
 
 }

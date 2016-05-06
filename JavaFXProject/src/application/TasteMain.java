@@ -4,14 +4,11 @@ import java.util.ArrayList;
 
 import fxtools.FxAlert;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import rModels.RItem;
-import rModels.ROrder;
-import rModels.RSeat;
 import rModels.RTable;
 
 
@@ -20,11 +17,11 @@ public class TasteMain extends Application {
 	//Our Stage
 	Stage guiStage;
 
+	//Our Gui Controller
+	private static GuiController guiControl;
+
 	//Our array of tables
 	private static ArrayList<RTable> tables = new ArrayList<RTable>();
-	private static ArrayList<RSeat> currentSeats = new ArrayList<RSeat>();
-	private static ArrayList<RItem> currentItems = new ArrayList<RItem>();
-	ROrder currentOrders[];
 
 	//Fucntion to Simply Launch the app
 	public static void main(String[] args) {
@@ -43,6 +40,10 @@ public class TasteMain extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Resturant Application");
 			primaryStage.show();
+
+			//Grab our controller
+			FXMLLoader loader = FXMLLoader.load(TasteMain.class.getResource("OrderGui.fxml"));
+			guiControl = loader.getController();
 
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -76,6 +77,9 @@ public class TasteMain extends Application {
 
 		//Add the table to the array
 		for(int i = 0; i < orders.size(); ++i) tables.get(index).addOrder(orders.get(i));
+
+		//Add it to the table view
+		guiControl.addOrderToTable(orders, index);
 
 		//Create a string to alert of item names
 		String orderString = "";
