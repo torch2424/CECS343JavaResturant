@@ -32,20 +32,6 @@ public class ConnectFirebase {
 		Table table = new Table();
 		Firebase newTableRef = tableRef.push();
 
-
-//		thread = new Thread(){
-//			public void run(){
-//				try {
-//		            System.out.println("Creating Table....");
-//		            newTableRef.setValue(table);
-//		            Thread.sleep(1000);
-//		        } catch(InterruptedException v) {
-//		            System.out.println(v);
-//		        }
-//			}
-//		};
-//		thread.start();
-
 		System.out.println("Creating Table...");
 		newTableRef.setValue(table, new Firebase.CompletionListener() {
 
@@ -62,22 +48,6 @@ public class ConnectFirebase {
 
 	public void updateTable(Firebase table, Map<String, Object> update){
 
-
-//		thread = new Thread(){
-//			public void run(){
-//				try {
-//		            System.out.println("Updating Table....");
-//		            table.updateChildren(update);
-//		            Thread.sleep(1000);
-//		        } catch(InterruptedException v) {
-//		            System.out.println("Failed to update table");
-//		        	System.out.println(v);
-//		        }
-//			}
-//		};
-//
-//		thread.start();
-
 		System.out.println("Updating Table...");
 		table.updateChildren(update, new Firebase.CompletionListener() {
 
@@ -89,6 +59,30 @@ public class ConnectFirebase {
 		});
 		sleep(1);
 
+	}
+
+	/**
+	 * Delete specific table from the database
+	 * @param table
+	 */
+	public void deleteTable(Firebase table){
+		table.removeValue(new Firebase.CompletionListener() {
+
+			@Override
+			public void onComplete(FirebaseError arg0, Firebase arg1) {
+				System.out.println("Table deleted....");
+
+			}
+		});
+	}
+
+	/**
+	 * Set the Value at node "Table" to null
+	 * All the values at node "Table" will be deleted
+	 */
+	public void clearAllTable(){
+		System.out.println("Deleting all tables");
+		root.child("Table").removeValue();
 	}
 
 	/**
@@ -118,7 +112,8 @@ public class ConnectFirebase {
 		f.updateTable(table, update);
 
 
-
+//		f.clearAllTable();
+		f.deleteTable(table);
 
 	}
 
