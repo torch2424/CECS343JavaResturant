@@ -60,6 +60,13 @@ public class GuiController {
 		tableControllers.get(index).addTableOrder(orders);
 	}
 
+	//Remove a table
+	public void removeTable(int index) {
+
+		//Remove the table from the controller
+		tableAccordion.getPanes().remove(index);
+	}
+
 	//Close Window
 	@FXML
 	public void closeWindow(ActionEvent event){

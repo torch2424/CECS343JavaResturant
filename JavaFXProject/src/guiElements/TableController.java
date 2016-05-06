@@ -3,6 +3,7 @@ package guiElements;
 import java.util.ArrayList;
 
 import application.StaticModalManager;
+import application.TasteMain;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -83,6 +84,13 @@ public class TableController {
 	public void clearTable() {
 		tableStatusColor.setFill(Color.GREEN);
 		tableOrders.getItems().clear();
+	}
+
+	//Delete the table entirely
+	public void deleteTable() {
+
+		//Remove from the static state manager
+		TasteMain.removeTable(tableIndex);
 	}
 
 }

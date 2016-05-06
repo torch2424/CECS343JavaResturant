@@ -68,6 +68,19 @@ public class TasteMain extends Application {
 		//FxAlert.alertInfo("Success!", "Table Created! Name: " + name + ", Size: " + size);
 	}
 
+	//Delete a table
+	public static void removeTable(int index) {
+
+		//Remove the table
+		tables.remove(index);
+
+		//Remove from the accordian as well from the controller
+		guiControl.removeTable(index);
+
+		//Alert The user
+		FxAlert.alertInfo("Success!", "Table " + (index + 1) + " Deleted!");
+	}
+
 	//Seat Functions
 	public static void addSeat(String tableID, String seatName) {
 

@@ -17,17 +17,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 
-<TitledPane fx:id="tablePane" animated="false" text="New Table" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiElements.TableController">
+<TitledPane fx:id="tablePane" animated="false" prefHeight="300.0" prefWidth="500.0" text="New Table" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiElements.TableController">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
            <children>
-              <Rectangle fx:id="tableStatusColor" arcHeight="5.0" arcWidth="5.0" fill="#1fff20" height="44.0" stroke="BLACK" strokeType="INSIDE" width="201.0" />
-              <Button layoutY="44.0" mnemonicParsing="false" onAction="#readyTable" prefHeight="25.0" prefWidth="67.0" text="Ready" />
-              <Button layoutX="67.0" layoutY="44.0" mnemonicParsing="false" onAction="#occupyTable" prefHeight="25.0" prefWidth="71.0" text="Occ'd" />
-              <SplitMenuButton fx:id="tableOrders" layoutY="69.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Items Ordered" />
-              <Button layoutX="1.0" layoutY="119.0" mnemonicParsing="false" onAction="#clearTable" prefHeight="25.0" prefWidth="199.0" text="Clear Table" />
-              <Button layoutX="-1.0" layoutY="94.0" mnemonicParsing="false" onAction="#itemDialog" prefHeight="25.0" prefWidth="201.0" text="Add Item" />
-              <Button layoutX="138.0" layoutY="44.0" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#dirtyTable" prefHeight="27.0" prefWidth="62.0" text="Dirty" />
+              <Rectangle fx:id="tableStatusColor" arcHeight="5.0" arcWidth="5.0" fill="#1fff20" height="49.0" stroke="BLACK" strokeType="INSIDE" width="500.0" />
+              <Button layoutX="10.0" layoutY="51.0" mnemonicParsing="false" onAction="#readyTable" prefHeight="39.0" prefWidth="139.0" text="Ready" />
+              <Button layoutX="164.0" layoutY="51.0" mnemonicParsing="false" onAction="#occupyTable" prefHeight="39.0" prefWidth="148.0" text="Occ'd" />
+              <SplitMenuButton fx:id="tableOrders" layoutX="16.0" layoutY="98.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="459.0" text="Items Ordered" />
+              <Button layoutX="14.0" layoutY="210.0" mnemonicParsing="false" onAction="#clearTable" prefHeight="56.0" prefWidth="231.0" text="Clear Table" />
+              <Button layoutX="13.0" layoutY="153.0" mnemonicParsing="false" onAction="#itemDialog" prefHeight="54.0" prefWidth="230.0" text="Add Item" />
+              <Button layoutX="338.0" layoutY="50.0" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#dirtyTable" prefHeight="41.0" prefWidth="146.0" text="Dirty" />
+            <Button layoutX="339.0" layoutY="230.0" mnemonicParsing="false" onAction="#deleteTable" prefHeight="31.0" prefWidth="145.0" text="Delete Table" textFill="RED" />
            </children>
         </AnchorPane>
   </content>
