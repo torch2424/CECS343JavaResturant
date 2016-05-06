@@ -18,17 +18,22 @@ public class ConnectFirebase {
 		root = new Firebase("https://cecs343javaproject.firebaseio.com");
 	}
 
+	/**
+	 * Create an object Table in the database
+	 * @return Firebase object with the reference to the newly created table
+	 */
 	public Firebase addTable(){
 		Firebase tableRef = root.child("Table");
 
 		Table table = new Table();
 		Firebase newTableRef = tableRef.push();
-		newTableRef.setValue(table);
+
 
 		thread = new Thread(){
 			public void run(){
 				try {
 		            System.out.println("Creating Table....");
+		            newTableRef.setValue(table);
 		            Thread.sleep(1000);
 		        } catch(InterruptedException v) {
 		            System.out.println(v);
@@ -40,13 +45,13 @@ public class ConnectFirebase {
 		return newTableRef;
 	}
 
-	public static void main(String[] args){
-		ConnectFirebase f = new ConnectFirebase();
-		System.out.println(f.addTable());
-		System.out.println("check");
-
-
-	}
+//	public static void main(String[] args){
+//		ConnectFirebase f = new ConnectFirebase();
+//		System.out.println(f.addTable());
+//		System.out.println("check");
+//
+//
+//	}
 
 
 }
