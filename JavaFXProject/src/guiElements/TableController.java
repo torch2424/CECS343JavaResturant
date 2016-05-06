@@ -6,6 +6,7 @@ import application.StaticModalManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TitledPane;
 import javafx.scene.paint.Color;
@@ -42,11 +43,18 @@ public class TableController {
 	public void addTableOrder(ArrayList<RItem> orders) {
 
 		//Loop through the orders and add
-		MenuItem newMenuItem = new MenuItem(newItemTextField.getText());
-		newMenuItem.setOnAction(e -> {
-			newMenuItem.setText(newMenuItem.getText() + " - SERVED");
-		});
-		tableOrders.getItems().add(newMenuItem);
+		for(int i = 0; i < orders.size(); ++i) {
+
+			//Create the menuItem and add it
+			MenuItem newMenuItem = new MenuItem(orders.get(i).getName());
+			newMenuItem.setOnAction(e -> {
+				if(newMenuItem.getText().contains(" - SERVED") != true){
+					//Add the served text
+					newMenuItem.setText(newMenuItem.getText() + " - SERVED");
+				}
+			});
+			tableOrders.getItems().add(newMenuItem);
+		}
 	}
 
 	//Bring Up the item dialog

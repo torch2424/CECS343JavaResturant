@@ -32,17 +32,21 @@ public class TasteMain extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 
+		//Grab our FXML
+		FXMLLoader loader = new FXMLLoader(
+			    getClass().getResource("../application/OrderGui.fxml"));
+
 		try {
 
+			//Set up our stage
 			guiStage = primaryStage;
-			VBox page = (VBox) FXMLLoader.load(TasteMain.class.getResource("OrderGui.fxml"));
+			VBox page = (VBox) loader.load();
 			Scene scene = new Scene(page);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Resturant Application");
 			primaryStage.show();
 
-			//Grab our controller
-			FXMLLoader loader = FXMLLoader.load(TasteMain.class.getResource("OrderGui.fxml"));
+			//Get the controller
 			guiControl = loader.getController();
 
 		} catch(Exception e) {
