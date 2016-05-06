@@ -26,6 +26,9 @@ public class ItemPopupControl {
 	ObservableList<String> entreeList;
 	ObservableList<String> dessertList;
 
+	//Our table Index
+	int tableIndex;
+
 
 	//Our menu
 	Menu foodMenu;
@@ -43,7 +46,10 @@ public class ItemPopupControl {
 	}
 
 	//Function called by user to set some values
-	public void initController(String tableId) {
+	public void initController(int index) {
+
+		//Save our table index
+		tableIndex = index;
 
 		//Initialize our Menu
 		foodMenu = new Menu();
@@ -71,7 +77,7 @@ public class ItemPopupControl {
 		//Add the item to the main state
 		ArrayList<RItem> listOrders = new ArrayList<RItem>();
 		listOrders.add(foodMenu.getAppetizers().get(index));
-		TasteMain.addItem(listOrders);
+		TasteMain.addItem(listOrders, tableIndex);
 
 	}
 

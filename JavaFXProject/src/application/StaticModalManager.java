@@ -16,7 +16,7 @@ import modalPopups.createOrEditControl.ResturantObject;
 
 public class StaticModalManager {
 
-	public static void ItemModal(FXMLLoader loader, ActionEvent event) {
+	public static void ItemModal(FXMLLoader loader, ActionEvent event, int index) {
 
 	    //create the modal
 	    Stage stage = new Stage();
@@ -39,7 +39,7 @@ public class StaticModalManager {
 		    //Get our controller
 		    ItemPopupControl controller = loader.<ItemPopupControl>getController();
 
-		    controller.initController("tableIdTest");
+		    controller.initController(index);
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

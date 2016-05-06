@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import guiElements.TableController;
 import javafx.event.ActionEvent;
@@ -15,8 +16,12 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modalPopups.createOrEditControl;
 import modalPopups.createOrEditControl.ResturantObject;
+import rModels.RItem;
 
 public class GuiController {
+
+	//Array of Table Controllers
+	private ArrayList<TableController> tableControllers = new ArrayList<TableController>();
 
 	public Scene mainScene;
 	public void setMainScene(Scene pScene){
@@ -43,9 +48,16 @@ public class GuiController {
 		TasteMain.addTable("Table" + (TasteMain.getTables().size() + 1), 6);
 
 		//Edit the table status
-	    TableController controller = loader.<TableController>getController();
-	    controller.initController(TasteMain.getTables().get(TasteMain.getTables().size() - 1).getTableName());
+		int tableIndex = TasteMain.getTables().size() - 1;
+	    tableControllers.add(loader.<TableController>getController());
+	    tableControllers.get(tableIndex).initController(TasteMain.getTables().get(tableIndex).getTableName(), tableIndex);
+	}
 
+	//Add an item to a table
+	public void addOrderToTable(ArrayList<RItem> orders, int index) {
+
+		//Bubble the function call to the table
+		tableControllers.get(index).addTableOrder(orders);
 	}
 
 	//Close Window

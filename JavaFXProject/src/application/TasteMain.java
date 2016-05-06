@@ -4,14 +4,11 @@ import java.util.ArrayList;
 
 import fxtools.FxAlert;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import rModels.RItem;
-import rModels.ROrder;
-import rModels.RSeat;
 import rModels.RTable;
 
 
@@ -20,11 +17,11 @@ public class TasteMain extends Application {
 	//Our Stage
 	Stage guiStage;
 
+	//Our Gui Controller
+	private static GuiController guiControl;
+
 	//Our array of tables
 	private static ArrayList<RTable> tables = new ArrayList<RTable>();
-	private static ArrayList<RSeat> currentSeats = new ArrayList<RSeat>();
-	private static ArrayList<RItem> currentItems = new ArrayList<RItem>();
-	ROrder currentOrders[];
 
 	//Fucntion to Simply Launch the app
 	public static void main(String[] args) {
@@ -35,14 +32,22 @@ public class TasteMain extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 
+		//Grab our FXML
+		FXMLLoader loader = new FXMLLoader(
+			    getClass().getResource("../application/OrderGui.fxml"));
+
 		try {
 
+			//Set up our stage
 			guiStage = primaryStage;
-			VBox page = (VBox) FXMLLoader.load(TasteMain.class.getResource("OrderGui.fxml"));
+			VBox page = (VBox) loader.load();
 			Scene scene = new Scene(page);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Resturant Application");
 			primaryStage.show();
+
+			//Get the controller
+			guiControl = loader.getController();
 
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -72,10 +77,13 @@ public class TasteMain extends Application {
 		FxAlert.alertInfo("Success!", "Seat Created! Name: " + seatName);
 	}
 
-	public static void addItem(ArrayList<RItem> orders) {
+	public static void addItem(ArrayList<RItem> orders, int index) {
 
 		//Add the table to the array
-		for(int i = 0; i < orders.size(); ++i) tables.get(0).addOrder(orders.get(i));
+		for(int i = 0; i < orders.size(); ++i) tables.get(index).addOrder(orders.get(i));
+
+		//Add it to the table view
+		guiControl.addOrderToTable(orders, index);
 
 		//Create a string to alert of item names
 		String orderString = "";

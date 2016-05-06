@@ -26,7 +26,7 @@
               <Button layoutX="67.0" layoutY="44.0" mnemonicParsing="false" onAction="#occupyTable" prefHeight="25.0" prefWidth="71.0" text="Occ'd" />
               <SplitMenuButton fx:id="tableOrders" layoutY="69.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Items Ordered" />
               <Button layoutX="1.0" layoutY="119.0" mnemonicParsing="false" onAction="#clearTable" prefHeight="25.0" prefWidth="199.0" text="Clear Table" />
-              <Button layoutX="-1.0" layoutY="94.0" mnemonicParsing="false" onAction="#addTableOrder" prefHeight="25.0" prefWidth="201.0" text="Add Item" />
+              <Button layoutX="-1.0" layoutY="94.0" mnemonicParsing="false" onAction="#itemDialog" prefHeight="25.0" prefWidth="201.0" text="Add Item" />
               <Button layoutX="138.0" layoutY="44.0" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#dirtyTable" prefHeight="27.0" prefWidth="62.0" text="Dirty" />
            </children>
         </AnchorPane>
