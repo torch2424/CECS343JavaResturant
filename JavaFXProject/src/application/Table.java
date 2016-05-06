@@ -18,7 +18,7 @@ public class Table {
 	private int state;
 
 	public Table(){
-		state = 2;
+		state = 0;
 	}
 
 	public int getTableState(){
