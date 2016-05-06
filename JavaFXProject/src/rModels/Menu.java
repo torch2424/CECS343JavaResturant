@@ -153,8 +153,99 @@ public class Menu {
 
 		//specialties
 		specialties.add(panRoast_Half_Chicken);
+		specialties.add(chicken_Chardonnay);
+		specialties.add(chicken_Francaise);
+		specialties.add(pork_Chop);
+		specialties.add(duck);
+		specialties.add(lambTBone);
+		specialties.add(veal_Piccata);
+		specialties.add(veal_Parmesan);
+		specialties.add(veal_Marsala);
+		specialties.add(primeSteak);
+		specialties.add(filet_Mignon);
+		specialties.add(ribeyeSteak);
+
+		//salads
+		salads.add(mixedGreens);
+		salads.add(spinach);
+		salads.add(beet);
+		salads.add(wedge);
+		salads.add(caesar);
+		salads.add(chickenCaesar);
+		salads.add(calamariCaesar);
+		salads.add(shrimpCaesar);
+		salads.add(salmonCaesar);
+
+		//dressings
+		dressings.add(ranch);
+		dressings.add(italian);
+		dressings.add(vinegret);
+		dressings.add(lemon);
+
+		//seafood
+		seafood.add(salmon);
+		seafood.add(walleye);
+		seafood.add(seabass);
+		seafood.add(scallops);
+		seafood.add(prawns);
+
+		//soups
+		soups.add(frenchOnion);
+		soups.add(scallopAndCucumber);
+
+		//sides
+		sides.add(sauteed_Vegetable_Medley);
+		sides.add(sauteed_Mushrooms);
+		sides.add(asparagus);
+		sides.add(sauteed_Potatoes);
+		sides.add(mashed_Potatoes);
+		sides.add(parmesan_Potatoes);
+		sides.add(house_Cut_Fries);
+		sides.add(mushroom_Risotto);
+		sides.add(mac_Cheese);
+
+		//dessert
+		dessert.add(chomeur_Pudding);
+		dessert.add(creme_Brulee);
+		dessert.add(choc_custard_Cake);
+		dessert.add(frenchTart);
+		dessert.add(vanilla_Cheesecake);
+		dessert.add(choc_Lava_Cake);
+		dessert.add(house_Ice_Cream);
+
+		//drinks
+		drinks.add(stellaArtois);
+		drinks.add(coors_Light);
+		drinks.add(budweiser);
+		drinks.add(oDouls);
+		drinks.add(bards_Gluten_Free);
+		drinks.add(sam_Adams);
+		drinks.add(lift_Bridge);
+		drinks.add(fulton_IPA);
+		drinks.add(amstel_Light);
+		drinks.add(guinness);
+		drinks.add(french_Martini);
+		drinks.add(redSangria);
+		drinks.add(jameson_Ginger);
+		drinks.add(whiteWine);
+		drinks.add(redWine);
+		drinks.add(coke);
+		drinks.add(sprite);
+		drinks.add(lemonade);
+		drinks.add(drPepper);
+		drinks.add(orangejuice);
+		drinks.add(cranberryJuice);
+		drinks.add(iceTea);
+		drinks.add(water);
 
 
+	}
+
+	//Getters for arrays
+	public ArrayList<RItem> getAppetizers() {
+
+		//Return the appetizers
+		return appetizers;
 	}
 
 }

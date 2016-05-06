@@ -1,6 +1,6 @@
 package modalPopups;
 
-import application.ResturantGUI;
+import application.TasteMain;
 import application.StaticModalManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -42,7 +42,7 @@ public class TablePopupControl {
 		int inputSize = Integer.valueOf(tableSize.getText());
 
 		//And create the table in our state
-		ResturantGUI.addTable(inputName, inputSize);
+		TasteMain.addTable(inputName, inputSize);
 	}
 
 	@FXML

@@ -4,25 +4,24 @@ import java.util.ArrayList;
 
 import fxtools.FxAlert;
 import javafx.application.Application;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import rModels.ROrder;
-import rModels.RSeat;
+import rModels.RItem;
 import rModels.RTable;
 
 
-public class ResturantGUI extends Application {
+public class TasteMain extends Application {
 
 	//Our Stage
 	Stage guiStage;
 
+	//Our Gui Controller
+	private static GuiController guiControl;
+
 	//Our array of tables
 	private static ArrayList<RTable> tables = new ArrayList<RTable>();
-	private static ArrayList<RSeat> currentSeats = new ArrayList<RSeat>();
-	ROrder currentOrders[];
 
 	//Fucntion to Simply Launch the app
 	public static void main(String[] args) {
@@ -33,14 +32,22 @@ public class ResturantGUI extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 
+		//Grab our FXML
+		FXMLLoader loader = new FXMLLoader(
+			    getClass().getResource("../application/OrderGui.fxml"));
+
 		try {
 
+			//Set up our stage
 			guiStage = primaryStage;
-			VBox page = (VBox) FXMLLoader.load(ResturantGUI.class.getResource("OrderGui.fxml"));
+			VBox page = (VBox) loader.load();
 			Scene scene = new Scene(page);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Resturant Application");
 			primaryStage.show();
+
+			//Get the controller
+			guiControl = loader.getController();
 
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -57,7 +64,8 @@ public class ResturantGUI extends Application {
 		//Add the table to the array
 		tables.add(new RTable(name, size));
 
-		FxAlert.alertInfo("Success!", "Table Created! Name: " + name + ", Size: " + size);
+		//Alert Not Needed
+		//FxAlert.alertInfo("Success!", "Table Created! Name: " + name + ", Size: " + size);
 	}
 
 	//Seat Functions
@@ -69,12 +77,18 @@ public class ResturantGUI extends Application {
 		FxAlert.alertInfo("Success!", "Seat Created! Name: " + seatName);
 	}
 
-	public static void addSeat(String tableID, String seatName, ObservableList<String> Orders) {
+	public static void addItem(ArrayList<RItem> orders, int index) {
 
 		//Add the table to the array
-		tables.get(0).addSeat(seatName);
+		for(int i = 0; i < orders.size(); ++i) tables.get(index).addOrder(orders.get(i));
 
-		FxAlert.alertInfo("Success!", "Seat Created! Name: " + seatName);
+		//Add it to the table view
+		guiControl.addOrderToTable(orders, index);
+
+		//Create a string to alert of item names
+		String orderString = "";
+		for(int i = 0; i < orders.size(); ++i) orderString = orderString + orders.get(i).getName() + " ";
+		FxAlert.alertInfo("Success!", "Order Added! Item Name(s): " + orderString);
 	}
 
 }
