@@ -72,10 +72,10 @@ public class TasteMain extends Application {
 		FxAlert.alertInfo("Success!", "Seat Created! Name: " + seatName);
 	}
 
-	public static void addItem(ArrayList<RItem> orders) {
+	public static void addItem(ArrayList<RItem> orders, int index) {
 
 		//Add the table to the array
-		for(int i = 0; i < orders.size(); ++i) tables.get(0).addOrder(orders.get(i));
+		for(int i = 0; i < orders.size(); ++i) tables.get(index).addOrder(orders.get(i));
 
 		//Create a string to alert of item names
 		String orderString = "";

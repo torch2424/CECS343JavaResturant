@@ -43,8 +43,9 @@ public class GuiController {
 		TasteMain.addTable("Table" + (TasteMain.getTables().size() + 1), 6);
 
 		//Edit the table status
+		int tableIndex = TasteMain.getTables().size() - 1;
 	    TableController controller = loader.<TableController>getController();
-	    controller.initController(TasteMain.getTables().get(TasteMain.getTables().size() - 1).getTableName());
+	    controller.initController(TasteMain.getTables().get(tableIndex).getTableName(), tableIndex);
 
 	}
 

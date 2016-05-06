@@ -1,16 +1,13 @@
 package guiElements;
 
 import application.StaticModalManager;
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TitledPane;
-import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import rModels.Menu;
 
 
 public class TableController {
@@ -23,12 +20,18 @@ public class TableController {
 	@FXML
 	private SplitMenuButton tableOrders;
 
+	//Our table index
+	int tableIndex;
+
 	//Function to init the table
 	//Function called by user to set some values
-	public void initController(String tableId) {
+	public void initController(String tableId, int index) {
 
 		//Set the table name
 		tablePane.setText(tableId);
+
+		//Set the table index
+		tableIndex = index;
 	}
 
 
@@ -39,11 +42,7 @@ public class TableController {
 		//Get our FXML Loader
 		FXMLLoader loader = new FXMLLoader(
 			    getClass().getResource("../modalPopups/itemDialog.fxml"));
-		StaticModalManager.ItemModal(loader, event);
-
-//		currentMenuButton = menuButtonOne;
-//		newItemTextField.setDisable(false);
-//		newItemSaveButton.setDisable(false);
+		StaticModalManager.ItemModal(loader, event, tableIndex);
 	}
 
 
@@ -63,5 +62,19 @@ public class TableController {
 		tableStatusColor.setFill(Color.GREEN);
 		tableOrders.getItems().clear();
 	}
+
+
+
+
+
+//	MenuItem newMenuItem = new MenuItem(newItemTextField.getText());
+//	newMenuItem.setOnAction(e -> {
+//		newMenuItem.setText(newMenuItem.getText() + " - SERVED");
+//	});
+//	currentMenuButton.getItems().addAll(newMenuItem);
+//	newItemTextField.clear();
+//	newItemTextField.setPromptText("New item...");
+//	newItemTextField.setDisable(true);
+//	newItemSaveButton.setDisable(true);
 
 }
