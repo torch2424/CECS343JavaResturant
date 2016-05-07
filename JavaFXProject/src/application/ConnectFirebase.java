@@ -3,6 +3,7 @@ package application;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -54,25 +55,41 @@ public class ConnectFirebase {
 		return newTableRef;
 	}
 
-	/**
-	 * Update specific table's values
-	 * @param table Table's key
-	 * @param update HashMap with the updated keys
-	 */
-	public void updateTable(Firebase table, Map<String, Object> update){
+	public void updateTable(Table table){
 
 		System.out.println("Updating Table...");
-		table.updateChildren(update, new Firebase.CompletionListener() {
-
-			@Override
-			public void onComplete(FirebaseError arg0, Firebase arg1) {
-				System.out.println("Table updated");
-
-			}
-		});
-		sleep(1);
+		Firebase tableRef = table.getRef();
+		HashMap<String, Boolean> order = table.getOrder();
+		for(Entry<String, Boolean> entry: order.entrySet()){
+			String food = entry.getKey();
+			tableRef.child("order").child(food).child("served").setValue(entry.getValue());
+		}
+		tableRef.child("tableState").setValue(table.getTableState());
+		sleep(2);
+		System.out.println("Table Updated");
 
 	}
+
+//	/**
+//	 * Update specific table's values
+//	 * @param table Table's key
+//	 * @param update HashMap with the updated keys
+//	 */
+//	public void updateTableState(Table table, Map<String, Object> update){
+//
+//		Firebase tableRef = table.getRef();
+//		System.out.println("Updating Table's state...");
+//		tableRef.updateChildren(update, new Firebase.CompletionListener() {
+//
+//			@Override
+//			public void onComplete(FirebaseError arg0, Firebase arg1) {
+//				System.out.println("Table's state updated");
+//
+//			}
+//		});
+//		sleep(1);
+//
+//	}
 
 	/**
 	 *
@@ -157,48 +174,54 @@ public class ConnectFirebase {
 		}
 	}
 
-	public static void main(String[] args){
-		ConnectFirebase f = new ConnectFirebase();
-		Firebase table = f.addTable();
-		System.out.println(table);
-
-
-		/** Ordering of the table **/
-		Table t = f.tableList.get(table.toString());
-
-		t.addOrder("Chicken");
-		t.addOrder("Rice");
-		t.addOrder("Something");
-//		Map<String, Object> order = new HashMap<String, Object>();
-		ArrayList<String> orders = t.getOrder();
-		for(int i = 0; i < orders.size(); i++){
-//			order.put(i+"", orders.get(i));
-			table.child("order").child(orders.get(i)).child("served").setValue(false);
-		}
-//		table.child("order").setValue(order);
-
-		/*****************/
-
-		/**
-		 * Update table
-		 */
-//		Map<String, Object> update = new HashMap<String, Object>();
-//		update.put("tableState", 1);
-//		f.updateTable(table, update);
-
-//		f.clearAllTable();
-//		f.clearTable(table);
-//		f.deleteAllTable();
-//		f.deleteTable(table);
-
-		/**
-		 * Needed:
-		 * 	EventListener that update list of table
-		 * 	Table with orders
-		 * 	Request all table and convert it to the list of all table object
-		 */
-
-	}
+//	public static void main(String[] args){
+//		ConnectFirebase f = new ConnectFirebase();
+//		Firebase table = f.addTable();
+//		System.out.println(table);
+//
+//
+//		/** Ordering of the table **/
+//		Table t = f.tableList.get(table.toString());
+//
+//		t.addOrder("Chicken");
+//		t.addOrder("Rice");
+//		t.addOrder("Something");
+//		f.updateTable(t);
+////		Map<String, Object> order = new HashMap<String, Object>();
+////		HashMap<String, Boolean> order = t.getOrder();
+////		for(Entry<String, Boolean> entry: order.entrySet()){
+////			String food = entry.getKey();
+////			table.child("order").child(food).child("served").setValue(entry.getValue());
+////		}
+//
+////		for(int i = 0; i < orders.size(); i++){
+//////			order.put(i+"", orders.get(i));
+////			table.child("order").child(orders.get(i)).child("served").setValue(false);
+////		}
+////		table.child("order").setValue(order);
+//
+//		/*****************/
+//
+//		/**
+//		 * Update table
+//		 */
+////		Map<String, Object> update = new HashMap<String, Object>();
+////		update.put("tableState", 1);
+////		f.updateTableState(t, update);
+//
+////		f.clearAllTable();
+////		f.clearTable(table);
+////		f.deleteAllTable();
+////		f.deleteTable(table);
+//
+//		/**
+//		 * Needed:
+//		 * 	EventListener that update list of table
+//		 * 	Table with orders
+//		 * 	Request all table and convert it to the list of all table object
+//		 */
+//
+//	}
 
 
 }

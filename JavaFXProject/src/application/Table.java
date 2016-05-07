@@ -1,7 +1,7 @@
 package application;
 
 import java.util.ArrayList;
-import java.util.Map;
+import java.util.HashMap;
 
 import com.firebase.client.Firebase;
 
@@ -22,11 +22,11 @@ public class Table {
 	 */
 	private int state;
 	private Firebase ref;
-	ArrayList<String> order;
+	HashMap<String, Boolean> order;
 
 	public Table(){
 		state = 0;
-		order = new ArrayList<String>();
+		order = new HashMap<String, Boolean>();
 
 	}
 
@@ -59,11 +59,15 @@ public class Table {
 
 	/** Ordering functions **/
 
-	public ArrayList<String> getOrder(){
+	public HashMap<String, Boolean> getOrder(){
 		return order;
 	}
 
 	public void addOrder(String food){
-		order.add(food);
+		order.put(food, false);
+	}
+
+	public void served(String food){
+		order.put(food, true);
 	}
 }
