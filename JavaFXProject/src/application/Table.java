@@ -1,5 +1,10 @@
 package application;
 
+import java.util.ArrayList;
+import java.util.Map;
+
+import com.firebase.client.Firebase;
+
 /**
  *
  * @author Rich Cherngchaosil
@@ -16,14 +21,21 @@ public class Table {
 	 *  2 - Dirty
 	 */
 	private int state;
+	private Firebase ref;
+	ArrayList<String> order;
 
 	public Table(){
 		state = 0;
+		order = new ArrayList<String>();
+
 	}
+
+
 
 	public int getTableState(){
 		return state;
 	}
+
 
 	public void updateTableState(int s){
 		if(s < 0 || s > 2){
@@ -33,7 +45,25 @@ public class Table {
 		state = s;
 	}
 
-	public void clearTable(){
+	public void setRef(Firebase r){
+		ref = r;
+	}
 
+	public Firebase getRef(){
+		return ref;
+	}
+
+	public void clearTable(){
+		state = 0;
+	}
+
+	/** Ordering functions **/
+
+	public ArrayList<String> getOrder(){
+		return order;
+	}
+
+	public void addOrder(String food){
+		order.add(food);
 	}
 }

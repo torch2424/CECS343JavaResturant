@@ -1,5 +1,6 @@
 package application;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,14 +19,17 @@ import com.firebase.client.ValueEventListener;
 public class ConnectFirebase {
 
 	Firebase root;
+	HashMap<String, Table> tableList;
 //	Thread thread;
 
 	public ConnectFirebase(){
 		root = new Firebase("https://cecs343javaproject.firebaseio.com");
+		tableList = new HashMap<String, Table>();
 	}
 
 	/**
 	 * Create an object Table in the database
+	 * @param empty reference for table ("pointer") to the table object
 	 * @return Firebase object with the reference to the newly created table
 	 */
 	public Firebase addTable(){
@@ -44,7 +48,9 @@ public class ConnectFirebase {
 			}
 		});
 
-		sleep(3);
+		sleep(2);
+		table.setRef(newTableRef);
+		tableList.put(newTableRef.toString(), table);
 		return newTableRef;
 	}
 
@@ -68,6 +74,11 @@ public class ConnectFirebase {
 
 	}
 
+	/**
+	 *
+	 * Set the specific table to the inital state
+	 * @param table Firebase ref to that table object.
+	 */
 	public void clearTable(Firebase table){
 		System.out.println("Clearing Table...");
 		table.setValue(new Table(), new Firebase.CompletionListener() {
@@ -81,6 +92,9 @@ public class ConnectFirebase {
 		sleep(2);
 	}
 
+	/**
+	 * Turn all table into state 0, which is ready state
+	 */
 	public void clearAllTable(){
 		System.out.println("Clearing all tables...");
 		Firebase tableRef = root.child("Table");
@@ -127,6 +141,7 @@ public class ConnectFirebase {
 	public void deleteAllTable(){
 		System.out.println("Deleting all tables");
 		root.child("Table").removeValue();
+		sleep(4);
 	}
 
 	/**
@@ -147,17 +162,41 @@ public class ConnectFirebase {
 		Firebase table = f.addTable();
 		System.out.println(table);
 
+
+		/** Ordering of the table **/
+		Table t = f.tableList.get(table.toString());
+
+		t.addOrder("Chicken");
+		t.addOrder("Rice");
+		t.addOrder("Something");
+//		Map<String, Object> order = new HashMap<String, Object>();
+		ArrayList<String> orders = t.getOrder();
+		for(int i = 0; i < orders.size(); i++){
+//			order.put(i+"", orders.get(i));
+			table.child("order").child(orders.get(i)).child("served").setValue(false);
+		}
+//		table.child("order").setValue(order);
+
+		/*****************/
+
 		/**
 		 * Update table
 		 */
-		Map<String, Object> update = new HashMap<String, Object>();
-		update.put("tableState", 1);
-		f.updateTable(table, update);
+//		Map<String, Object> update = new HashMap<String, Object>();
+//		update.put("tableState", 1);
+//		f.updateTable(table, update);
 
 //		f.clearAllTable();
 //		f.clearTable(table);
 //		f.deleteAllTable();
 //		f.deleteTable(table);
+
+		/**
+		 * Needed:
+		 * 	EventListener that update list of table
+		 * 	Table with orders
+		 * 	Request all table and convert it to the list of all table object
+		 */
 
 	}
 
