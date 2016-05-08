@@ -1,7 +1,7 @@
 package application;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 import com.firebase.client.Firebase;
 
@@ -69,5 +69,15 @@ public class Table {
 
 	public void served(String food){
 		order.put(food, true);
+	}
+
+	public void updateOrder(HashMap<String, Boolean> newOrder){
+		order = newOrder;
+	}
+
+	public void listFood(){
+		for(Entry<String, Boolean> entry: order.entrySet()){
+			System.out.println(entry.getKey());
+		}
 	}
 }
