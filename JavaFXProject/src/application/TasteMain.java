@@ -66,7 +66,7 @@ public class TasteMain extends Application {
 		return tables;
 	}
 
-	public static void addTable(String name, int size) {
+	public static void addTable(String name) {
 
 		//Check if the name exists
 		for(int i = 0; i < tables.size(); i++) {
@@ -82,7 +82,7 @@ public class TasteMain extends Application {
 		}
 
 		//Add the table to the array
-		tables.add(new RTable(name, size));
+		tables.add(new RTable(name));
 	}
 
 	//Delete a table
@@ -99,15 +99,6 @@ public class TasteMain extends Application {
 
 		//Alert The user
 		FxAlert.alertInfo("Success!", tableName + " Deleted!");
-	}
-
-	//Seat Functions
-	public static void addSeat(String tableID, String seatName) {
-
-		//Add the table to the array
-		tables.get(0).addSeat(seatName);
-
-		FxAlert.alertInfo("Success!", "Seat Created! Name: " + seatName);
 	}
 
 	public static void addItem(ArrayList<RItem> orders, int index) {

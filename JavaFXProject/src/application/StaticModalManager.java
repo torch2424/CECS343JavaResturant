@@ -10,9 +10,6 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modalPopups.ItemPopupControl;
-import modalPopups.SeatPopupControl;
-import modalPopups.TablePopupControl;
-import modalPopups.createOrEditControl.ResturantObject;
 
 public class StaticModalManager {
 
@@ -40,62 +37,6 @@ public class StaticModalManager {
 		    ItemPopupControl controller = loader.<ItemPopupControl>getController();
 
 		    controller.initController(index);
-
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-
-			StaticModalManager.modalError();
-		}
-	}
-
-	public static void tableModal(FXMLLoader loader, ActionEvent event) {
-
-		//Get our controller
-	    TablePopupControl controller = loader.<TablePopupControl>getController();
-
-	    //Call controller Function
-	    //controller.initData(customer);
-
-	    //Pass to the modal Creater
-	    StaticModalManager.createModal(loader, event, "Table", ResturantObject.TABLE);
-	}
-
-	public static void seatModal(FXMLLoader loader, ActionEvent event) {
-
-	    //Get our controller
-	    SeatPopupControl controller = loader.<SeatPopupControl>getController();
-
-	    //Call controller Function
-	    //controller.initData(customer);
-
-	    //Pass to the modal Creater
-	    StaticModalManager.createModal(loader, event, "Seats", ResturantObject.SEAT);
-	}
-
-	//Helper Fucntion to create the modal
-	private static void createModal(FXMLLoader loader, ActionEvent event,
-			String title, ResturantObject objectType) {
-
-		Stage stage = new Stage();
-	    Parent root;
-	    //Group roots = new Group ();
-
-	    try {
-
-			//Get our FXML Loader
-			root = loader.load();
-
-		    stage.setScene(new Scene(root));
-		    stage.setTitle(title);
-		    stage.initModality(Modality.WINDOW_MODAL);
-		    stage.initOwner(
-		        ((Node)event.getSource()).getScene().getWindow() );
-
-		    //Call controller Function
-		    //controller.initData(customer);
-		    //Finally show the stage
-		    stage.show();
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

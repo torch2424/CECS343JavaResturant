@@ -104,12 +104,12 @@ public class TableController {
 	}
 
 	//Get/Set Table Index
-	public void setTableIndex(int index) {
-		tableIndex = index;
-	}
-
 	public int getTableIndex() {
 		return tableIndex;
+	}
+
+	public void setTableIndex(int index) {
+		tableIndex = index;
 	}
 
 	//Delete the table entirely

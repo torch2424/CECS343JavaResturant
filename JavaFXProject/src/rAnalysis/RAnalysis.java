@@ -74,7 +74,7 @@ public class RAnalysis {
             if (entry.getValue() == minValue) {
 
             	//Set the items names
-                itemName = itemName + entry.getKey() + " ";
+                itemName = itemName + entry.getKey() + ", ";
             }
         }
 
