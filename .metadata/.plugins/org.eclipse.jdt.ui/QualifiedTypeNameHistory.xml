@@ -9,4 +9,8 @@
 <fullyQualifiedTypeName name="javafx.scene.control.TitledPane"/>
 <fullyQualifiedTypeName name="javafx.scene.control.MenuItem"/>
 <fullyQualifiedTypeName name="application.TasteMain"/>
+<fullyQualifiedTypeName name="javafx.scene.control.TextField"/>
+<fullyQualifiedTypeName name="javafx.scene.input.KeyEvent"/>
+<fullyQualifiedTypeName name="java.util.Map.Entry"/>
+<fullyQualifiedTypeName name="javafx.scene.control.Label"/>
 </qualifiedTypeNameHistroy>
