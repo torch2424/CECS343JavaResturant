@@ -48,12 +48,19 @@ public class GuiController {
 	@FXML
 	private Label dataFlopSellers;
 
+	//No Tables Label
+	@FXML
+	private Label noTables;
+
 	//How much will our scroll view will grow on increase/decrease tabel size
-	private final double scrollSizeRate = 50.0;
+	private final double scrollSizeRate = 75.0;
 
 	//Add a table
 	@FXML
 	public void addNewTable(ActionEvent event) throws IOException {
+
+		//Remove not tables
+		noTables.setVisible(false);
 
 		//Load a new Tables
 		FXMLLoader loader = new FXMLLoader(
@@ -62,8 +69,6 @@ public class GuiController {
 
 		//Get our table index
 		int newTableIndex =  TasteMain.getTables().size();
-
-		System.out.println(newTableIndex);
 
 		//Add it to our main Controllers
 		TasteMain.addTable("Table" + (newTableIndex + 1), 6);
@@ -101,6 +106,9 @@ public class GuiController {
 
 		//Decrease the pane size
 	    accordionParent.setMinHeight(accordionParent.getMinHeight() - scrollSizeRate);
+
+	    //Check if we can show no tables
+	    if(tableControllers.size() == 0) noTables.setVisible(true);
 	}
 
 	//Update data view

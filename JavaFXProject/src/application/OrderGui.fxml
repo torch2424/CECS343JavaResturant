@@ -44,6 +44,21 @@
                                   <AnchorPane fx:id="accordionParent" minHeight="125.0" minWidth="0.0" prefHeight="125.0" prefWidth="798.0">
                                        <children>
                                          <Accordion fx:id="tableAccordion" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="770.0" />
+                                          <Label fx:id="noTables" layoutX="290.0" layoutY="-2.0" prefHeight="130.0" prefWidth="235.0" text="No Tables" textAlignment="CENTER">
+                                             <font>
+                                                <Font size="50.0" />
+                                             </font>
+                                             <textFill>
+                                                <LinearGradient endX="0.03398058252427183" endY="1.0" startX="1.0" startY="0.07766990291262132">
+                                                   <stops>
+                                                      <Stop color="RED" />
+                                                      <Stop color="#eb00ff" offset="0.48074737141233304" />
+                                                      <Stop color="BLACK" offset="0.927536231884058" />
+                                                      <Stop color="BLACK" offset="1.0" />
+                                                   </stops>
+                                                </LinearGradient>
+                                             </textFill>
+                                          </Label>
                                        </children>
                                     </AnchorPane>
                                 </content>
