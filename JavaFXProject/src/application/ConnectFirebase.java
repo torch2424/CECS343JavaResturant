@@ -56,15 +56,9 @@ public class ConnectFirebase {
 				for(DataSnapshot tables: arg0.getChildren()){
 					Table updateTable = new Table();
 
-//					tables.getKey();
-//					System.out.println(tables.getKey());
-
 					Firebase tableRef = tableRootRef.child(tables.getKey());
 					updateTable.setRef(tableRef);
 					Firebase orderRef = tableRef.child("order");
-//					System.out.println(orderRef.toString());
-//					System.out.println(tableRef.child("tableState"));
-
 
 					try {
 						int tableState = Integer.parseInt(get(tableRef.child("tableState")+".json"));
@@ -72,33 +66,20 @@ public class ConnectFirebase {
 
 						/*** getting all the food orders **/
 						String orderJson = get(orderRef+".json");
-
-
 						HashMap<String, Boolean> orderList = new HashMap<String, Boolean>();
 						if(orderJson.equals("null")){
-//							System.out.println("None");
 							// Do nothing
 						}else{
-//							System.out.println(orderJson);
 							String[] foods = orderJson.split(",");
+
 							for(String i:foods){
-//								System.out.println(i.replaceAll("[^a-zA-Z]", " "));
 								String[] foodState = i.replaceAll("[^a-zA-Z]", " ").split("\\s+");
 								orderList.put(foodState[1], Boolean.valueOf(foodState[2]));
-//								for(String a: foodState){
-//									System.out.println(a+",");
-//								}
-//								for(Entry<String, Boolean> entry: orderList.entrySet()){
-//									System.out.println(entry.getKey() + " : " + entry.getValue());
-//								}
 							}
 						}
 
 						updateTable.updateOrder(orderList);
 						tableList.put(tables.getKey(), updateTable);
-
-
-//						System.out.println(get(tableRef.child("tableState")+".json"));
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -157,27 +138,6 @@ public class ConnectFirebase {
 		System.out.println("Table Updated");
 
 	}
-
-//	/**
-//	 * Update specific table's values
-//	 * @param table Table's key
-//	 * @param update HashMap with the updated keys
-//	 */
-//	public void updateTableState(Table table, Map<String, Object> update){
-//
-//		Firebase tableRef = table.getRef();
-//		System.out.println("Updating Table's state...");
-//		tableRef.updateChildren(update, new Firebase.CompletionListener() {
-//
-//			@Override
-//			public void onComplete(FirebaseError arg0, Firebase arg1) {
-//				System.out.println("Table's state updated");
-//
-//			}
-//		});
-//		sleep(1);
-//
-//	}
 
 	/**
 	 *
@@ -263,14 +223,6 @@ public class ConnectFirebase {
 	}
 
 	private static String get(String url) throws Exception{
-
-//		InputStream in = new URL(url).openStream();
-//
-//		try{
-//			System.out.println( IOUtils.toString( in ));
-//		} finally{
-//			IOUtils.closeQuietly(in);
-//		}
 
 		URL website = new URL(url);
 		HttpURLConnection connection = (HttpURLConnection) website.openConnection();
