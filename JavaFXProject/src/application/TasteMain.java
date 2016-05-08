@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import rAnalysis.RAnalysis;
 import rModels.RItem;
 import rModels.RTable;
 
@@ -23,6 +24,9 @@ public class TasteMain extends Application {
 	//Our array of tables
 	private static ArrayList<RTable> tables = new ArrayList<RTable>();
 
+	//Our anaylysis Object
+	private static RAnalysis analyzer;
+
 	//Fucntion to Simply Launch the app
 	public static void main(String[] args) {
 		launch(args);
@@ -31,6 +35,9 @@ public class TasteMain extends Application {
 	//Function to instantiate the UI
 	@Override
 	public void start(Stage primaryStage) {
+
+		//instantiate our analyzer
+		analyzer = new RAnalysis();
 
 		//Grab our FXML
 		FXMLLoader loader = new FXMLLoader(
@@ -61,11 +68,37 @@ public class TasteMain extends Application {
 
 	public static void addTable(String name, int size) {
 
+		//Check if the name exists
+		for(int i = 0; i < tables.size(); i++) {
+
+			if(tables.get(i).getTableName().contentEquals(name)) {
+
+				//Decrease the index to check the index once more
+				--i;
+
+				//Append "-new" to signify a new table
+				name = name + " - New";
+			}
+		}
+
 		//Add the table to the array
 		tables.add(new RTable(name, size));
+	}
 
-		//Alert Not Needed
-		//FxAlert.alertInfo("Success!", "Table Created! Name: " + name + ", Size: " + size);
+	//Delete a table
+	public static void removeTable(int index) {
+
+		//Get the table name
+		String tableName = tables.get(index).getTableName();
+
+		//Remove the table
+		tables.remove(index);
+
+		//Remove from the accordian as well from the controller
+		guiControl.removeTable(index);
+
+		//Alert The user
+		FxAlert.alertInfo("Success!", tableName + " Deleted!");
 	}
 
 	//Seat Functions
@@ -78,6 +111,11 @@ public class TasteMain extends Application {
 	}
 
 	public static void addItem(ArrayList<RItem> orders, int index) {
+
+		//First, run through the analyzer
+		analyzer.recordItems(orders);
+		//Update the data view
+		guiControl.updateData(analyzer);
 
 		//Add the table to the array
 		for(int i = 0; i < orders.size(); ++i) tables.get(index).addOrder(orders.get(i));

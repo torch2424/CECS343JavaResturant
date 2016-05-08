@@ -3,12 +3,15 @@ package guiElements;
 import java.util.ArrayList;
 
 import application.StaticModalManager;
+import application.TasteMain;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SplitMenuButton;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import rModels.RItem;
@@ -23,6 +26,8 @@ public class TableController {
 	private Rectangle tableStatusColor;
 	@FXML
 	private SplitMenuButton tableOrders;
+	@FXML
+	private TextField tableName;
 
 	//Our table index
 	int tableIndex;
@@ -67,6 +72,19 @@ public class TableController {
 		StaticModalManager.ItemModal(loader, event, tableIndex);
 	}
 
+	//Set the table name from the input box
+	public void setTableName(KeyEvent event) {
+
+		//Get the text from the input
+		String input = tableName.getText();
+
+		//Set the text
+		tablePane.setText(input);
+
+		//Set the name in the Main
+		TasteMain.getTables().get(tableIndex).setTableName(input);
+	}
+
 
 	//Table Status
 	public void readyTable() {
@@ -83,6 +101,23 @@ public class TableController {
 	public void clearTable() {
 		tableStatusColor.setFill(Color.GREEN);
 		tableOrders.getItems().clear();
+	}
+
+	//Get/Set Table Index
+	public void setTableIndex(int index) {
+		tableIndex = index;
+	}
+
+	public int getTableIndex() {
+		return tableIndex;
+	}
+
+	//Delete the table entirely
+	public void deleteTable() {
+
+		//Remove from the static state manager
+		System.out.println(tableIndex);
+		TasteMain.removeTable(tableIndex);
 	}
 
 }
