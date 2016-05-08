@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import rAnalysis.RAnalysis;
 import rModels.RItem;
 import rModels.RTable;
 
@@ -23,6 +24,9 @@ public class TasteMain extends Application {
 	//Our array of tables
 	private static ArrayList<RTable> tables = new ArrayList<RTable>();
 
+	//Our anaylysis Object
+	private static RAnalysis analyzer;
+
 	//Fucntion to Simply Launch the app
 	public static void main(String[] args) {
 		launch(args);
@@ -31,6 +35,9 @@ public class TasteMain extends Application {
 	//Function to instantiate the UI
 	@Override
 	public void start(Stage primaryStage) {
+
+		//instantiate our analyzer
+		analyzer = new RAnalysis();
 
 		//Grab our FXML
 		FXMLLoader loader = new FXMLLoader(
@@ -104,6 +111,11 @@ public class TasteMain extends Application {
 	}
 
 	public static void addItem(ArrayList<RItem> orders, int index) {
+
+		//First, run through the analyzer
+		analyzer.recordItems(orders);
+		//Update the data view
+		guiControl.updateData(analyzer);
 
 		//Add the table to the array
 		for(int i = 0; i < orders.size(); ++i) tables.get(index).addOrder(orders.get(i));

@@ -16,6 +16,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modalPopups.createOrEditControl;
 import modalPopups.createOrEditControl.ResturantObject;
+import rAnalysis.RAnalysis;
 import rModels.RItem;
 
 public class GuiController {
@@ -91,6 +92,11 @@ public class GuiController {
 
 		//Decrease the pane size
 	    accordionParent.setMinHeight(accordionParent.getMinHeight() - scrollSizeRate);
+	}
+
+	//Update data view
+	public void updateData(RAnalysis analyzer) {
+
 	}
 
 	//Close Window
