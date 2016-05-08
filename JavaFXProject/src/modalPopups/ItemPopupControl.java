@@ -97,6 +97,7 @@ public class ItemPopupControl {
 			drinkList.add(Menu.drinks.get(i).getName());
 		}
 
+		//Place into view
 		entreeListView.setItems(entreeList);
 		appDesListView.setItems(appDesList);
 		drinkListView.setItems(drinkList);
@@ -106,12 +107,14 @@ public class ItemPopupControl {
 	public void addItem(ActionEvent event){
 
 		//Get our selected items
-		int index = appDesListView.getSelectionModel().getSelectedIndex();
+		int index;
+
+//		if(appDesListView.getSelectionModel().getSelectedItem())
 
 		//Add the item to the main state
-		ArrayList<RItem> listOrders = new ArrayList<RItem>();
-		listOrders.add(foodMenu.getAppetizers().get(index));
-		TasteMain.addItem(listOrders, tableIndex);
+//		ArrayList<RItem> listOrders = new ArrayList<RItem>();
+//		listOrders.add(foodMenu.getAppetizers().get(index));
+//		TasteMain.addItem(listOrders, tableIndex);
 	}
 
 	//Helper function to get item
