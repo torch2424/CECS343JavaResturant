@@ -61,15 +61,28 @@ public class TasteMain extends Application {
 
 	public static void addTable(String name, int size) {
 
+		//Check if the name exists
+		for(int i = 0; i < tables.size(); i++) {
+
+			if(tables.get(i).getTableName().contentEquals(name)) {
+
+				//Decrease the index to check the index once more
+				--i;
+
+				//Append "-new" to signify a new table
+				name = name + " - New";
+			}
+		}
+
 		//Add the table to the array
 		tables.add(new RTable(name, size));
-
-		//Alert Not Needed
-		//FxAlert.alertInfo("Success!", "Table Created! Name: " + name + ", Size: " + size);
 	}
 
 	//Delete a table
 	public static void removeTable(int index) {
+
+		//Get the table name
+		String tableName = tables.get(index).getTableName();
 
 		//Remove the table
 		tables.remove(index);
@@ -78,7 +91,7 @@ public class TasteMain extends Application {
 		guiControl.removeTable(index);
 
 		//Alert The user
-		FxAlert.alertInfo("Success!", "Table " + (index + 1) + " Deleted!");
+		FxAlert.alertInfo("Success!", tableName + " Deleted!");
 	}
 
 	//Seat Functions

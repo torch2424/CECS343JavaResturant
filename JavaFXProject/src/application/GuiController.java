@@ -31,9 +31,15 @@ public class GuiController {
 	//Our Table Accordian
 	@FXML
 	private Accordion tableAccordion;
+	//Our anchorpane parenting the accordion
+	@FXML
+	private AnchorPane accordionParent;
 	//Our table view from scene builder
 	@FXML
 	AnchorPane tableView;
+
+	//How much will our scroll view will grow on increase/decrease tabel size
+	private final double scrollSizeRate = 50.0;
 
 	//Add a table
 	@FXML
@@ -44,13 +50,20 @@ public class GuiController {
 			    getClass().getResource("../guiElements/tableGui.fxml"));
 		tableAccordion.getPanes().add(loader.load());
 
+		//Get our table index
+		int newTableIndex =  TasteMain.getTables().size();
+
+		System.out.println(newTableIndex);
+
 		//Add it to our main Controllers
-		TasteMain.addTable("Table" + (TasteMain.getTables().size() + 1), 6);
+		TasteMain.addTable("Table" + (newTableIndex + 1), 6);
 
 		//Edit the table status
-		int tableIndex = TasteMain.getTables().size() - 1;
 	    tableControllers.add(loader.<TableController>getController());
-	    tableControllers.get(tableIndex).initController(TasteMain.getTables().get(tableIndex).getTableName(), tableIndex);
+	    tableControllers.get(newTableIndex).initController(TasteMain.getTables().get(newTableIndex).getTableName(), newTableIndex);
+
+	    //Increase the pane size
+	    accordionParent.setMinHeight(accordionParent.getMinHeight() + scrollSizeRate);
 	}
 
 	//Add an item to a table
@@ -63,8 +76,21 @@ public class GuiController {
 	//Remove a table
 	public void removeTable(int index) {
 
-		//Remove the table from the controller
+		//Remove the table from the Accordion
 		tableAccordion.getPanes().remove(index);
+
+		//Remove the table from the controller
+		tableControllers.remove(index);
+
+		//Decrease the index of all the tables
+		for(int i = 0; i < tableControllers.size(); ++i) {
+
+			//Decrease/set the index
+			tableControllers.get(i).setTableIndex(i);
+		}
+
+		//Decrease the pane size
+	    accordionParent.setMinHeight(accordionParent.getMinHeight() - scrollSizeRate);
 	}
 
 	//Close Window

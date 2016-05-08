@@ -38,8 +38,16 @@
                  <content>
                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                           <children>
-                             <Accordion fx:id="tableAccordion" layoutX="14.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="770.0" />
                               <Button layoutX="7.0" layoutY="470.0" mnemonicParsing="false" onAction="#addNewTable" prefHeight="73.0" prefWidth="288.0" text="Add Table" />
+                              <ScrollPane prefHeight="460.0" prefWidth="800.0">
+                                <content>
+                                  <AnchorPane fx:id="accordionParent" minHeight="125.0" minWidth="0.0" prefHeight="125.0" prefWidth="798.0">
+                                       <children>
+                                         <Accordion fx:id="tableAccordion" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="770.0" />
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </ScrollPane>
                           </children>
                         </AnchorPane>
                  </content>
