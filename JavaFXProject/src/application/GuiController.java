@@ -19,6 +19,7 @@ public class GuiController {
 	//Array of Table Controllers
 	private ArrayList<TableController> tableControllers = new ArrayList<TableController>();
 
+	//Our Scene
 	public Scene mainScene;
 	public void setMainScene(Scene pScene){
 		mainScene = pScene;
@@ -46,7 +47,7 @@ public class GuiController {
 	@FXML
 	private Label noTables;
 
-	//How much will our scroll view will grow on increase/decrease tabel size
+	//How much will our scroll view will grow on increase/decrease table size
 	private final double scrollSizeRate = 75.0;
 
 	//Add a table
