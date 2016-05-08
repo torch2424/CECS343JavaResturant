@@ -1,204 +1,125 @@
 package application;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+import guiElements.TableController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SplitMenuButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Accordion;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import modalPopups.createOrEditControl;
-import modalPopups.createOrEditControl.ResturantObject;
+import rAnalysis.RAnalysis;
+import rModels.RItem;
 
 public class GuiController {
 
+	//Array of Table Controllers
+	private ArrayList<TableController> tableControllers = new ArrayList<TableController>();
+
+	//Our Scene
 	public Scene mainScene;
 	public void setMainScene(Scene pScene){
 		mainScene = pScene;
 	}
 
+	//Our Table Accordian
 	@FXML
-	private Rectangle tableOneRectangle;
+	private Accordion tableAccordion;
+	//Our anchorpane parenting the accordion
 	@FXML
-	private SplitMenuButton menuButtonOne;
-	@FXML
-	private TextField newItemTextField;
-	@FXML
-	private Button newItemSaveButton;
-	@FXML
-	private Rectangle tableTwoRectangle;
-	@FXML
-	private SplitMenuButton menuButtonTwo;
-	@FXML
-	private Rectangle tableThreeRectangle;
-	@FXML
-	private Rectangle tableFourRectangle;
-	@FXML
-	private SplitMenuButton currentMenuButton;
-	@FXML
-	private SplitMenuButton menuButtonThree;
-	@FXML
-	private SplitMenuButton menuButtonFour;
-
+	private AnchorPane accordionParent;
 	//Our table view from scene builder
 	@FXML
 	AnchorPane tableView;
 
-	//Table Editor
+	//Our Data Labels
 	@FXML
-	private void tableManage(ActionEvent event) {
+	private Label dataRevenue;
+	@FXML
+	private Label dataBestSellers;
+	@FXML
+	private Label dataFlopSellers;
 
-		//Call the helper function
-		createOrEdit(event, ResturantObject.TABLE);
+	//No Tables Label
+	@FXML
+	private Label noTables;
+
+	//How much will our scroll view will grow on increase/decrease table size
+	private final double scrollSizeRate = 75.0;
+
+	//Add a table
+	@FXML
+	public void addNewTable(ActionEvent event) throws IOException {
+
+		//Remove not tables
+		noTables.setVisible(false);
+
+		//Load a new Tables
+		FXMLLoader loader = new FXMLLoader(
+			    getClass().getResource("../guiElements/tableGui.fxml"));
+		tableAccordion.getPanes().add(loader.load());
+
+		//Get our table index
+		int newTableIndex =  TasteMain.getTables().size();
+
+		//Add it to our main Controllers
+		TasteMain.addTable("Table" + (newTableIndex + 1));
+
+		//Edit the table status
+	    tableControllers.add(loader.<TableController>getController());
+	    tableControllers.get(newTableIndex).initController(TasteMain.getTables().get(newTableIndex).getTableName(), newTableIndex);
+
+	    //Increase the pane size
+	    accordionParent.setMinHeight(accordionParent.getMinHeight() + scrollSizeRate);
 	}
 
-	//Seat Editor
-	@FXML
-	private void seatManage(ActionEvent event) {
+	//Add an item to a table
+	public void addOrderToTable(ArrayList<RItem> orders, int index) {
 
-		//Call the helper function
-		createOrEdit(event, ResturantObject.SEAT);
+		//Bubble the function call to the table
+		tableControllers.get(index).addTableOrder(orders);
 	}
 
-	//Helper Function to open modal to select from a list of created objects to edit/or create a new one
-	private void createOrEdit(ActionEvent event, ResturantObject objectType) {
+	//Remove a table
+	public void removeTable(int index) {
 
-		Stage stage = new Stage();
-	    Parent root;
-		try {
+		//Remove the table from the Accordion
+		tableAccordion.getPanes().remove(index);
 
-			//Get our FXML Loader
-			FXMLLoader loader = new FXMLLoader(
-				    getClass().getResource("../modalPopups/createOrEdit.fxml"));
+		//Remove the table from the controller
+		tableControllers.remove(index);
 
-			root = loader.load();
+		//Decrease the index of all the tables
+		for(int i = 0; i < tableControllers.size(); ++i) {
 
-		    stage.setScene(new Scene(root));
-		    stage.setTitle("Resturant Edit - " + objectType.toString());
-		    stage.initModality(Modality.WINDOW_MODAL);
-		    stage.initOwner(
-		        ((Node)event.getSource()).getScene().getWindow() );
-
-		    //Get our controller
-		    createOrEditControl controller = loader.<createOrEditControl>getController();
-
-		    //Call controller Function
-		    if(objectType == ResturantObject.TABLE)
-		    	controller.initController(createOrEditControl.ResturantObject.TABLE);
-		    else if(objectType == ResturantObject.SEAT)
-		    	controller.initController(createOrEditControl.ResturantObject.SEAT);
-
-		    //Finally show the stage
-		    stage.show();
-
-		} catch (IOException e) {
-
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-
-			StaticModalManager.modalError();
+			//Decrease/set the index
+			tableControllers.get(i).setTableIndex(i);
 		}
+
+		//Decrease the pane size
+	    accordionParent.setMinHeight(accordionParent.getMinHeight() - scrollSizeRate);
+
+	    //Check if we can show no tables
+	    if(tableControllers.size() == 0) noTables.setVisible(true);
 	}
 
-	public void readyButtonTableOneClicked() {
-		tableOneRectangle.setFill(Color.GREEN);
-	}
-	public void occupyButtonTableOneClicked() {
-		tableOneRectangle.setFill(Color.RED);
-	}
-	public void dirtyButtonTableOneClick() {
-		tableOneRectangle.setFill(Color.YELLOW);
+	//Update data view
+	public void updateData(RAnalysis analyzer) {
+
+		//Simply set text on the data fields
+		dataRevenue.setText("$" + Double.valueOf(analyzer.getRevenue()));
+		dataBestSellers.setText(analyzer.getBestSeller());
+		dataFlopSellers.setText(analyzer.getFlopSeller());
 	}
 
+	//Close Window
+	@FXML
+	public void closeWindow(ActionEvent event){
 
-	public void addMenuOne() {
-		currentMenuButton = menuButtonOne;
-		newItemTextField.setDisable(false);
-		newItemSaveButton.setDisable(false);
+		//Call the close modal static
+		System.exit(0);
 	}
-	public void addMenuTwo() {
-		currentMenuButton = menuButtonTwo;
-		newItemTextField.setDisable(false);
-		newItemSaveButton.setDisable(false);
-	}
-	public void addMenuThree() {
-		currentMenuButton = menuButtonThree;
-		newItemTextField.setDisable(false);
-		newItemSaveButton.setDisable(false);
-	}
-	public void addMenuFour() {
-		currentMenuButton = menuButtonFour;
-		newItemTextField.setDisable(false);
-		newItemSaveButton.setDisable(false);
-	}
-	public void saveNewItem() {
-		MenuItem newMenuItem = new MenuItem(newItemTextField.getText());
-		newMenuItem.setOnAction(e -> {
-			newMenuItem.setText(newMenuItem.getText() + " - SERVED");
-		});
-		currentMenuButton.getItems().addAll(newMenuItem);
-		newItemTextField.clear();
-		newItemTextField.setPromptText("New item...");
-		newItemTextField.setDisable(true);
-		newItemSaveButton.setDisable(true);
-	}
-	public void clearTable() {
-		tableOneRectangle.setFill(Color.GREEN);
-		menuButtonOne.getItems().clear();
-	}
-	public void clearTableTwo() {
-		tableTwoRectangle.setFill(Color.GREEN);
-		menuButtonTwo.getItems().clear();
-	}
-	public void clearTableThree() {
-		tableThreeRectangle.setFill(Color.GREEN);
-		menuButtonThree.getItems().clear();
-	}
-	public void clearTableFour() {
-		tableFourRectangle.setFill(Color.GREEN);
-		menuButtonFour.getItems().clear();
-	}
-
-
-	public void readyButtonTableTwoClicked() {
-		tableTwoRectangle.setFill(Color.GREEN);
-	}
-	public void occupyButtonTableTwoClicked() {
-		tableTwoRectangle.setFill(Color.RED);
-	}
-	public void dirtyButtonTableTwoClick() {
-		tableTwoRectangle.setFill(Color.YELLOW);
-	}
-
-	public void readyButtonTableThreeClicked() {
-		tableThreeRectangle.setFill(Color.GREEN);
-	}
-	public void occupyButtonTableThreeClicked() {
-		tableThreeRectangle.setFill(Color.RED);
-	}
-	public void dirtyButtonTableThreeClick() {
-		tableThreeRectangle.setFill(Color.YELLOW);
-	}
-
-	public void readyButtonTableFourClicked() {
-		tableFourRectangle.setFill(Color.GREEN);
-	}
-	public void occupyButtonTableFourClicked() {
-		tableFourRectangle.setFill(Color.RED);
-	}
-	public void dirtyButtonTableFourClick() {
-		tableFourRectangle.setFill(Color.YELLOW);
-	}
-
-
 }
