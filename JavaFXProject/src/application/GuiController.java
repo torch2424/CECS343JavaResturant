@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Accordion;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -38,6 +39,14 @@ public class GuiController {
 	//Our table view from scene builder
 	@FXML
 	AnchorPane tableView;
+
+	//Our Data Labels
+	@FXML
+	private Label dataRevenue;
+	@FXML
+	private Label dataBestSellers;
+	@FXML
+	private Label dataFlopSellers;
 
 	//How much will our scroll view will grow on increase/decrease tabel size
 	private final double scrollSizeRate = 50.0;
@@ -97,6 +106,10 @@ public class GuiController {
 	//Update data view
 	public void updateData(RAnalysis analyzer) {
 
+		//Simply set text on the data fields
+		dataRevenue.setText("$" + Double.valueOf(analyzer.getRevenue()));
+		dataBestSellers.setText(analyzer.getBestSeller());
+		dataFlopSellers.setText(analyzer.getFlopSeller());
 	}
 
 	//Close Window

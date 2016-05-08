@@ -49,9 +49,12 @@ public class RAnalysis {
             if (entry.getValue() == maxValue) {
 
             	//Set the items names
-                itemName = itemName + entry.getKey() + " ";
+                itemName = itemName + entry.getKey() + ", ";
             }
         }
+
+        //Remove the trailing comma
+        itemName = itemName.substring(0, itemName.length() - 2);
 
         //Return the item name
 		return itemName;
@@ -74,6 +77,9 @@ public class RAnalysis {
                 itemName = itemName + entry.getKey() + " ";
             }
         }
+
+        //Remove the trailing comma
+        itemName = itemName.substring(0, itemName.length() - 2);
 
         //Return the item name
 		return itemName;
