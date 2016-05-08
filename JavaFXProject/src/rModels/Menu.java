@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Menu {
 
 	//Appetizers
-	ArrayList <RItem> appetizers = new ArrayList <RItem> ();
+	public static ArrayList <RItem> appetizers = new ArrayList <RItem> ();
 	RItem smoked_Salmon = new RItem ("Smoked Salmon", 9);
 	RItem spinach_Artichoke_Dip = new RItem ("Spinach & Artichoke Dip", 10);
 	RItem escargot = new RItem ("Escargot", 10);
@@ -25,7 +25,7 @@ public class Menu {
 
 
 	//Pasta
-	ArrayList <RItem> pasta = new ArrayList <RItem> ();
+	public static ArrayList <RItem> pasta = new ArrayList <RItem> ();
 	RItem fettuccine_Alfredo = new RItem ("Fettuccine Alfredo", 14);
 	RItem chicken_Alfredo = new RItem ("Chicken Fettuccine Alfredo", 18);
 	RItem shrimpAlfredo = new RItem ("Shrimp Fettuccine Alfredo", 20);
@@ -33,7 +33,7 @@ public class Menu {
 	RItem creole_Sausage_Penne = new RItem ("Creole Sausage Penne", 18);
 
 	//Specialties
-	ArrayList <RItem> specialties = new ArrayList <RItem> ();
+	public static ArrayList <RItem> specialties = new ArrayList <RItem> ();
 	RItem panRoast_Half_Chicken = new RItem ("Pan Roast Half Chicken", 20);
 	RItem chicken_Chardonnay = new RItem ("Chicken Chardonnay", 15);
 	RItem chicken_Francaise = new RItem ("Chicken Française", 24);
@@ -48,7 +48,7 @@ public class Menu {
 	RItem ribeyeSteak = new RItem ("Ribeye Steak", 38);
 
 	//salads
-	ArrayList <RItem> salads = new ArrayList <RItem> ();
+	public static ArrayList <RItem> salads = new ArrayList <RItem> ();
 	RItem mixedGreens = new RItem ("Mixed Greens Salad", 7);
 	RItem spinach = new RItem ("Spinach Salad", 8);
 	RItem wedge = new RItem ("Ribeye Steak", 9);
@@ -60,14 +60,14 @@ public class Menu {
 	RItem salmonCaesar = new RItem ("Salmon Caesar Salad", 18);
 
 	//Dressings
-	ArrayList <RItem> dressings = new ArrayList <RItem> ();
+	public static ArrayList <RItem> dressings = new ArrayList <RItem> ();
 	RItem ranch = new RItem ("Ranch", 0);
 	RItem italian = new RItem ("Italian", 0);
 	RItem vinegret = new RItem ("Vinegret", 0);
 	RItem lemon = new RItem ("Lemon", 0);
 
 	//Seafood
-	ArrayList <RItem> seafood = new ArrayList <RItem> ();
+	public static ArrayList <RItem> seafood = new ArrayList <RItem> ();
 	RItem salmon = new RItem ("Salmon", 26);
 	RItem walleye = new RItem ("Walleye", 30);
 	RItem seabass = new RItem ("Sea Bass", 36);
@@ -75,12 +75,12 @@ public class Menu {
 	RItem prawns = new RItem ("Blackened Prawns", 32);
 
 	//Soups
-	ArrayList <RItem> soups = new ArrayList <RItem> ();
+	public static ArrayList <RItem> soups = new ArrayList <RItem> ();
 	RItem frenchOnion = new RItem ("French Onion Soup", 7);
 	RItem scallopAndCucumber = new RItem ("callop & Cucumber Soup", 9);
 
 	//Sides
-	ArrayList <RItem> sides = new ArrayList <RItem> ();
+	public static ArrayList <RItem> sides = new ArrayList <RItem> ();
 	RItem sauteed_Vegetable_Medley = new RItem ("Sautéed Vegetable Medley", 4);
 	RItem green_Beans = new RItem ("Green Beans", 4);
 	RItem sauteed_Mushrooms = new RItem ("Sautéed Mushrooms", 6);
@@ -93,7 +93,7 @@ public class Menu {
 	RItem mac_Cheese = new RItem ("Baked Mac & Cheese", 8);
 
 	//dessert
-	ArrayList <RItem> dessert = new ArrayList <RItem> ();
+	public static ArrayList <RItem> dessert = new ArrayList <RItem> ();
 	RItem chomeur_Pudding = new RItem ("Signature Chomeur Pudding", 9);
 	RItem creme_Brulee = new RItem ("Maple Crème Brûlée", 5);
 	RItem choc_custard_Cake = new RItem ("Chocolate Ganache Custard Cake", 5);
@@ -103,7 +103,7 @@ public class Menu {
 	RItem house_Ice_Cream = new RItem ("House Made Ice Cream & Sorbet", 6);
 
 	//Drinks
-	ArrayList <RItem> drinks = new ArrayList <RItem> ();
+	public static ArrayList <RItem> drinks = new ArrayList <RItem> ();
 	RItem stellaArtois = new RItem ("Stella Artois", 7);
 	RItem budweiser = new RItem ("Budweiser", 5);
 	RItem coors_Light = new RItem ("Coors Light", 5);
@@ -237,15 +237,27 @@ public class Menu {
 		drinks.add(cranberryJuice);
 		drinks.add(iceTea);
 		drinks.add(water);
-
-
 	}
 
-	//Getters for arrays
-	public ArrayList<RItem> getAppetizers() {
+	//Getter to return all items for lookup
+	public static ArrayList<RItem> getAllItems() {
 
-		//Return the appetizers
-		return appetizers;
+		//Initialize the items
+		ArrayList<RItem> allItems = new ArrayList<RItem>();
+
+		allItems.addAll(appetizers);
+		allItems.addAll(pasta);
+		allItems.addAll(specialties);
+		allItems.addAll(salads);
+		allItems.addAll(dressings);
+		allItems.addAll(seafood);
+		allItems.addAll(soups);
+		allItems.addAll(sides);
+		allItems.addAll(dessert);
+		allItems.addAll(drinks);
+
+		//Return the items
+		return allItems;
 	}
 
 }

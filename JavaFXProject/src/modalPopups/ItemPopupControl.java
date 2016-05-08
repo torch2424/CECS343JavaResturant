@@ -17,14 +17,14 @@ public class ItemPopupControl {
 
 	//Our item lists
 	@FXML
-	ListView<String> appListView;
-	@FXML
 	ListView<String> entreeListView;
 	@FXML
-	ListView<String> dessertListView;
-	ObservableList<String> appList;
+	ListView<String> appDesListView;
+	@FXML
+	ListView<String> drinkListView;
 	ObservableList<String> entreeList;
-	ObservableList<String> dessertList;
+	ObservableList<String> appDesList;
+	ObservableList<String> drinkList;
 
 	//Our table Index
 	int tableIndex;
@@ -55,30 +55,78 @@ public class ItemPopupControl {
 		foodMenu = new Menu();
 
 		//Initialize our lists
-
-		appList = FXCollections.observableArrayList();
 		entreeList= FXCollections.observableArrayList();
-		dessertList= FXCollections.observableArrayList();
+		appDesList = FXCollections.observableArrayList();
+		drinkList= FXCollections.observableArrayList();
 
 		//Fill our views
-		for(int i = 0; i < foodMenu.getAppetizers().size(); ++i){
-			appList.add(foodMenu.getAppetizers().get(i).getName());
+
+		//Entrees
+		for(int i = 0; i < Menu.pasta.size(); ++i) {
+			entreeList.add(Menu.pasta.get(i).getName());
+		}
+		for(int i = 0; i < Menu.specialties.size(); ++i) {
+			entreeList.add(Menu.specialties.get(i).getName());
+		}
+		for(int i = 0; i < Menu.salads.size(); ++i) {
+			entreeList.add(Menu.salads.get(i).getName());
+		}
+		for(int i = 0; i < Menu.seafood.size(); ++i) {
+			entreeList.add(Menu.seafood.get(i).getName());
+		}
+		for(int i = 0; i < Menu.pasta.size(); ++i) {
+			entreeList.add(Menu.pasta.get(i).getName());
 		}
 
-		appListView.setItems(appList);
+		//Sides/desserts/appetizers/etc...
+		for(int i = 0; i < Menu.appetizers.size(); ++i) {
+			appDesList.add(Menu.appetizers.get(i).getName());
+		}
+		for(int i = 0; i < Menu.dressings.size(); ++i) {
+			appDesList.add(Menu.dressings.get(i).getName());
+		}
+		for(int i = 0; i < Menu.soups.size(); ++i) {
+			appDesList.add(Menu.soups.get(i).getName());
+		}
+		for(int i = 0; i < Menu.sides.size(); ++i) {
+			appDesList.add(Menu.sides.get(i).getName());
+		}
+
+		//Drinks
+		for(int i = 0; i < Menu.drinks.size(); ++i) {
+			drinkList.add(Menu.drinks.get(i).getName());
+		}
+
+		entreeListView.setItems(entreeList);
+		appDesListView.setItems(appDesList);
+		drinkListView.setItems(drinkList);
 	}
 
 	@FXML
 	public void addItem(ActionEvent event){
 
 		//Get our selected items
-		int index = appListView.getSelectionModel().getSelectedIndex();
+		int index = appDesListView.getSelectionModel().getSelectedIndex();
 
 		//Add the item to the main state
 		ArrayList<RItem> listOrders = new ArrayList<RItem>();
 		listOrders.add(foodMenu.getAppetizers().get(index));
 		TasteMain.addItem(listOrders, tableIndex);
+	}
 
+	//Helper function to get item
+	private RItem findItemInMenu(String itemName) {
+
+		//Get our menu
+		ArrayList<RItem> menu = Menu.getAllItems();
+
+		for(int i = 0; i < menu.size(); ++i) {
+			if(menu.get(i).getName().contentEquals(itemName)) {
+				return menu.get(i);
+			}
+		}
+
+		return new RItem("Item Not Found", 0);
 	}
 
 	@FXML
