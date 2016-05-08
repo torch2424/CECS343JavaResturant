@@ -21,4 +21,9 @@ public class RItem {
 		return itemName;
 	}
 
+	//Getter for our price
+	public double getPrice() {
+		return price;
+	}
+
 }
