@@ -1,6 +1,7 @@
-package guiElements;
+package appElements;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import application.StaticModalManager;
 import application.TasteMain;
@@ -31,6 +32,8 @@ public class TableController {
 
 	//Our table index
 	int tableIndex;
+	//Our ordr index
+	int orderIndex;
 
 	//Function to init the table
 	//Function called by user to set some values
@@ -47,18 +50,52 @@ public class TableController {
 	//Add order to the table
 	public void addTableOrder(ArrayList<RItem> orders) {
 
+		//Reset our order index
+		orderIndex = 0;
+
 		//Loop through the orders and add
 		for(int i = 0; i < orders.size(); ++i) {
+
+			//set our order index
+			orderIndex = i;
 
 			//Create the menuItem and add it
 			MenuItem newMenuItem = new MenuItem(orders.get(i).getName());
 			newMenuItem.setOnAction(e -> {
-				if(newMenuItem.getText().contains(" - SERVED") != true){
+				if(newMenuItem.getText().contains(" - SERVED") != true) {
+
+					//Save the item name for the backend
+					String itemName = newMenuItem.getText();
+
+					//Change the status in the backend
+					//Add to the backend
+					new Thread(new Runnable() {
+					    public void run() {
+					    	TasteMain.backend.tableList.get(TasteMain.getTables().get(tableIndex).getFirebaseKey().getKey()).served(itemName);
+					    }
+					}).start();
+
+					//Update the backend
+					TasteMain.updateBackendTable(tableIndex);
+
 					//Add the served text
 					newMenuItem.setText(newMenuItem.getText() + " - SERVED");
+
 				}
 			});
+
+			//Add to the backend
+			new Thread(new Runnable() {
+			    public void run() {
+			    	TasteMain.backend.tableList.get(TasteMain.getTables().get(tableIndex).getFirebaseKey().getKey()).addOrder(orders.get(orderIndex).getName());
+			    }
+			}).start();
+
+			//Add to the table orders clientside
 			tableOrders.getItems().add(newMenuItem);
+
+			//Update the backend
+			TasteMain.updateBackendTable(tableIndex);
 		}
 	}
 
@@ -68,7 +105,7 @@ public class TableController {
 		//Item Modal
 		//Get our FXML Loader
 		FXMLLoader loader = new FXMLLoader(
-			    getClass().getResource("../modalPopups/itemDialog.fxml"));
+			    getClass().getResource("../appElements/itemDialog.fxml"));
 		StaticModalManager.ItemModal(loader, event, tableIndex);
 	}
 
@@ -89,18 +126,59 @@ public class TableController {
 	//Table Status
 	public void readyTable() {
 		tableStatusColor.setFill(Color.GREEN);
+
+		//Add to the backend
+		new Thread(new Runnable() {
+		    public void run() {
+		    	TasteMain.backend.tableList.get(TasteMain.getTables().get(tableIndex).getFirebaseKey().getKey()).updateTableState(0);
+		    }
+		}).start();
+
+		//Update the backend
+		TasteMain.updateBackendTable(tableIndex);
 	}
 	public void occupyTable() {
 		tableStatusColor.setFill(Color.RED);
+
+		//Add to the backend
+				new Thread(new Runnable() {
+				    public void run() {
+				    	TasteMain.backend.tableList.get(TasteMain.getTables().get(tableIndex).getFirebaseKey().getKey()).updateTableState(1);
+				    }
+				}).start();
+
+				//Update the backend
+				TasteMain.updateBackendTable(tableIndex);
 	}
 	public void dirtyTable() {
 		tableStatusColor.setFill(Color.YELLOW);
+
+		//Add to the backend
+		new Thread(new Runnable() {
+		    public void run() {
+		    	TasteMain.backend.tableList.get(TasteMain.getTables().get(tableIndex).getFirebaseKey().getKey()).updateTableState(2);
+		    }
+		}).start();
+
+		//Update the backend
+		TasteMain.updateBackendTable(tableIndex);
 	}
 
 	//Completely clear the table
 	public void clearTable() {
 		tableStatusColor.setFill(Color.GREEN);
 		tableOrders.getItems().clear();
+
+		//Add to the backend
+		new Thread(new Runnable() {
+		    public void run() {
+		    	TasteMain.backend.tableList.get(TasteMain.getTables().get(tableIndex).getFirebaseKey().getKey()).clearOrders();
+		    	TasteMain.backend.tableList.get(TasteMain.getTables().get(tableIndex).getFirebaseKey().getKey()).updateTableState(0);
+		    }
+		}).start();
+
+		//Update the backend
+		TasteMain.updateBackendTable(tableIndex);
 	}
 
 	//Get/Set Table Index

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<VBox prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #F2F2F2; -fx-border-color: #050505; -fx-border-width: 5px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="modalPopups.ItemPopupControl">
+<VBox prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #F2F2F2; -fx-border-color: #050505; -fx-border-width: 5px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appElements.ItemPopupControl">
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="600.0">
          <children>

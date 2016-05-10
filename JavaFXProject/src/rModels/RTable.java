@@ -2,6 +2,8 @@ package rModels;
 
 import java.util.ArrayList;
 
+import com.firebase.client.Firebase;
+
 /**
  *
  * @author Thomas Hernandez CECS 343 Final Project Table class
@@ -23,6 +25,9 @@ public class RTable {
 
 	/** check status of table (if available, in use) */
 	private boolean tableStatus;
+
+	//Our backend key
+	private Firebase firebaseKey;
 
 	//Orders at the table
 	private ArrayList<RItem> tableItems;
@@ -93,5 +98,13 @@ public class RTable {
 
 		//Add the item to the array
 		tableItems.add(theItem);
+	}
+
+	//Get/Set the firebase key
+	public Firebase getFirebaseKey() {
+		return firebaseKey;
+	}
+	public void setFirebaseKey(Firebase key) {
+		firebaseKey = key;
 	}
 }
