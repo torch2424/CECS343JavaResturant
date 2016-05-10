@@ -148,4 +148,15 @@ public class TasteMain extends Application {
 		FxAlert.alertInfo("Success!", "Order Added! Item Name(s): " + orderString.substring(0, orderString.length() - 2));
 	}
 
+	//Function to push changes to backend
+	public static void updateBackendTable(int tableIndex) {
+
+		//Update the backend
+		new Thread(new Runnable() {
+		    public void run() {
+		    	backend.updateTable(TasteMain.backend.tableList.get(TasteMain.getTables().get(tableIndex).getFirebaseKey().getKey()));
+		    }
+		}).start();
+	}
+
 }

@@ -66,8 +66,6 @@ public class TableController {
 					//Save the item name for the backend
 					String itemName = newMenuItem.getText();
 
-					System.out.println(itemName);
-
 					//Add the served text
 					newMenuItem.setText(newMenuItem.getText() + " - SERVED");
 
@@ -80,11 +78,7 @@ public class TableController {
 					}).start();
 
 					//Update the backend
-					new Thread(new Runnable() {
-					    public void run() {
-					    	TasteMain.backend.updateTable(TasteMain.backend.tableList.get(TasteMain.getTables().get(tableIndex).getFirebaseKey().getKey()));
-					    }
-					}).start();
+					TasteMain.updateBackendTable(tableIndex);
 
 				}
 			});
@@ -100,11 +94,7 @@ public class TableController {
 			tableOrders.getItems().add(newMenuItem);
 
 			//Update the backend
-			new Thread(new Runnable() {
-			    public void run() {
-			    	TasteMain.backend.updateTable(TasteMain.backend.tableList.get(TasteMain.getTables().get(tableIndex).getFirebaseKey().getKey()));
-			    }
-			}).start();
+			TasteMain.updateBackendTable(tableIndex);
 		}
 	}
 
@@ -135,18 +125,58 @@ public class TableController {
 	//Table Status
 	public void readyTable() {
 		tableStatusColor.setFill(Color.GREEN);
+
+		//Add to the backend
+		new Thread(new Runnable() {
+		    public void run() {
+		    	TasteMain.backend.tableList.get(TasteMain.getTables().get(tableIndex).getFirebaseKey().getKey()).updateTableState(0);
+		    }
+		}).start();
+
+		//Update the backend
+		TasteMain.updateBackendTable(tableIndex);
 	}
 	public void occupyTable() {
 		tableStatusColor.setFill(Color.RED);
+
+		//Add to the backend
+				new Thread(new Runnable() {
+				    public void run() {
+				    	TasteMain.backend.tableList.get(TasteMain.getTables().get(tableIndex).getFirebaseKey().getKey()).updateTableState(1);
+				    }
+				}).start();
+
+				//Update the backend
+				TasteMain.updateBackendTable(tableIndex);
 	}
 	public void dirtyTable() {
 		tableStatusColor.setFill(Color.YELLOW);
+
+		//Add to the backend
+		new Thread(new Runnable() {
+		    public void run() {
+		    	TasteMain.backend.tableList.get(TasteMain.getTables().get(tableIndex).getFirebaseKey().getKey()).updateTableState(2);
+		    }
+		}).start();
+
+		//Update the backend
+		TasteMain.updateBackendTable(tableIndex);
 	}
 
 	//Completely clear the table
 	public void clearTable() {
 		tableStatusColor.setFill(Color.GREEN);
 		tableOrders.getItems().clear();
+
+		//Add to the backend
+		new Thread(new Runnable() {
+		    public void run() {
+		    	TasteMain.backend.tableList.get(TasteMain.getTables().get(tableIndex).getFirebaseKey().getKey()).clearTable();;
+		    }
+		}).start();
+
+		//Update the backend
+		TasteMain.updateBackendTable(tableIndex);
 	}
 
 	//Get/Set Table Index
