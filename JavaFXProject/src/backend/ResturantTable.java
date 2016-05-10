@@ -58,10 +58,12 @@ public class ResturantTable {
 	}
 
 	public void addOrder(String food) {
+		food = food.replaceAll(" ", "_");
 		order.put(food, false);
 	}
 
 	public void served(String food) {
+		food = food.replaceAll(" ", "_");
 		order.put(food, true);
 	}
 

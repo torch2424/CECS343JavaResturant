@@ -1,6 +1,7 @@
 package appElements;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import application.StaticModalManager;
 import application.TasteMain;
@@ -172,6 +173,7 @@ public class TableController {
 		new Thread(new Runnable() {
 		    public void run() {
 		    	TasteMain.backend.tableList.get(TasteMain.getTables().get(tableIndex).getFirebaseKey().getKey()).clearOrders();
+		    	TasteMain.backend.tableList.get(TasteMain.getTables().get(tableIndex).getFirebaseKey().getKey()).updateTableState(0);
 		    }
 		}).start();
 
