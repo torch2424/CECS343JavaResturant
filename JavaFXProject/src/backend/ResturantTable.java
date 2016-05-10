@@ -52,18 +52,15 @@ public class ResturantTable {
 	}
 
 	/** Ordering functions **/
-
 	public HashMap<String, Boolean> getOrder() {
 		return order;
 	}
 
 	public void addOrder(String food) {
-		food = food.replaceAll(" ", "_");
 		order.put(food, false);
 	}
 
 	public void served(String food) {
-		food = food.replaceAll(" ", "_");
 		order.put(food, true);
 	}
 
