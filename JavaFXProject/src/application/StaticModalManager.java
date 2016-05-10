@@ -9,50 +9,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import modalPopups.SeatPopupControl;
-import modalPopups.TablePopupControl;
-import modalPopups.createOrEditControl.ResturantObject;
+import modalPopups.ItemPopupControl;
 
 public class StaticModalManager {
 
-	public static void tableModal(FXMLLoader loader, ActionEvent event) {
+	public static void ItemModal(FXMLLoader loader, ActionEvent event, int index) {
 
-		//Get our controller
-	    TablePopupControl controller = loader.<TablePopupControl>getController();
-
-	    //Group roots = new Group();
-
-	    //Call controller Function
-	    //controller.initData(customer);
-
-	    //Pass to the modal Creater
-	    StaticModalManager.createModal(loader, event, "Table", ResturantObject.TABLE);
-	}
-
-	public static void seatModal(FXMLLoader loader, ActionEvent event) {
-
-		//Table rectangle
-//	    Rectangle r = new Rectangle(25,25,250,250);
-//	    r.setFill(Color.BLUE);
-//	    roots.getChildren().add(r);
-
-	    //Get our controller
-	    SeatPopupControl controller = loader.<SeatPopupControl>getController();
-
-	    //Call controller Function
-	    //controller.initData(customer);
-
-	    //Pass to the modal Creater
-	    StaticModalManager.createModal(loader, event, "Seats", ResturantObject.SEAT);
-	}
-
-	//Helper Fucntion to create the modal
-	private static void createModal(FXMLLoader loader, ActionEvent event,
-			String title, ResturantObject objectType) {
-
-		Stage stage = new Stage();
+	    //create the modal
+	    Stage stage = new Stage();
 	    Parent root;
-	    //Group roots = new Group ();
 
 	    try {
 
@@ -60,20 +25,18 @@ public class StaticModalManager {
 			root = loader.load();
 
 		    stage.setScene(new Scene(root));
-		    stage.setTitle(title);
+		    stage.setTitle("New Item");
 		    stage.initModality(Modality.WINDOW_MODAL);
 		    stage.initOwner(
 		        ((Node)event.getSource()).getScene().getWindow() );
 
-//		    Rectangle r = new Rectangle(25,25,250,250);
-//		       r.setFill(Color.BLUE);
-//		       roots.getChildren().add(r);
-
-
-		    //Call controller Function
-		    //controller.initData(customer);
 		    //Finally show the stage
 		    stage.show();
+
+		    //Get our controller
+		    ItemPopupControl controller = loader.<ItemPopupControl>getController();
+
+		    controller.initController(index);
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
