@@ -35,7 +35,7 @@ public class Menu {
 	ArrayList<RItem> specialties = new ArrayList<RItem>();
 	RItem panRoast_Half_Chicken = new RItem("Pan Roast Half Chicken", 20);
 	RItem chicken_Chardonnay = new RItem("Chicken Chardonnay", 15);
-	RItem chicken_Francaise = new RItem("Chicken Française", 24);
+	RItem chicken_Francaise = new RItem("Chicken Franï¿½aise", 24);
 	RItem pork_Chop = new RItem("Pork Chop", 20);
 	RItem duck = new RItem("Duck", 26);
 	RItem lambTBone = new RItem("Lamb T-Bone", 30);
@@ -80,21 +80,21 @@ public class Menu {
 
 	// Sides
 	ArrayList<RItem> sides = new ArrayList<RItem>();
-	RItem sauteed_Vegetable_Medley = new RItem("Sautéed Vegetable Medley", 4);
+	RItem sauteed_Vegetable_Medley = new RItem("Sautï¿½ed Vegetable Medley", 4);
 	RItem green_Beans = new RItem("Green Beans", 4);
-	RItem sauteed_Mushrooms = new RItem("Sautéed Mushrooms", 6);
+	RItem sauteed_Mushrooms = new RItem("Sautï¿½ed Mushrooms", 6);
 	RItem asparagus = new RItem("Asparagus with Hollandaise", 9);
-	RItem sauteed_Potatoes = new RItem("Sautéed Fingerling Potatoes", 4);
+	RItem sauteed_Potatoes = new RItem("Sautï¿½ed Fingerling Potatoes", 4);
 	RItem mashed_Potatoes = new RItem("Boursin Mashed Potatoes", 4);
 	RItem parmesan_Potatoes = new RItem("Parmesan Leek Potatoes", 4);
-	RItem house_Cut_Fries = new RItem("House Cut Fries with Béarnaise", 5);
+	RItem house_Cut_Fries = new RItem("House Cut Fries with Bï¿½arnaise", 5);
 	RItem mushroom_Risotto = new RItem("Wild Mushroom Risotto", 5);
 	RItem mac_Cheese = new RItem("Baked Mac & Cheese", 8);
 
 	// dessert
 	ArrayList<RItem> dessert = new ArrayList<RItem>();
 	RItem chomeur_Pudding = new RItem("Signature Chomeur Pudding", 9);
-	RItem creme_Brulee = new RItem("Maple Crème Brûlée", 5);
+	RItem creme_Brulee = new RItem("Maple Crï¿½me Brï¿½lï¿½e", 5);
 	RItem choc_custard_Cake = new RItem("Chocolate Ganache Custard Cake", 5);
 	RItem frenchTart = new RItem("French Silk Tart", 5);
 	RItem vanilla_Cheesecake = new RItem("Vanilla Cheesecake", 6);
@@ -236,7 +236,27 @@ public class Menu {
 		drinks.add(cranberryJuice);
 		drinks.add(iceTea);
 		drinks.add(water);
+	}
 
+	//Getter to return all items for lookup
+	public static ArrayList<RItem> getAllItems() {
+
+		//Initialize the items
+		ArrayList<RItem> allItems = new ArrayList<RItem>();
+
+		allItems.addAll(appetizers);
+		allItems.addAll(pasta);
+		allItems.addAll(specialties);
+		allItems.addAll(salads);
+		allItems.addAll(dressings);
+		allItems.addAll(seafood);
+		allItems.addAll(soups);
+		allItems.addAll(sides);
+		allItems.addAll(dessert);
+		allItems.addAll(drinks);
+
+		//Return the items
+		return allItems;
 	}
 
 	// Getters for arrays

@@ -15,20 +15,20 @@
             <Button alignment="CENTER" layoutX="145.0" layoutY="487.0" mnemonicParsing="false" onAction="#addItem" prefHeight="44.0" prefWidth="303.0" text="Submit" textAlignment="CENTER" />
             <AnchorPane layoutX="14.0" layoutY="70.0" maxWidth="-Infinity" prefHeight="417.0" prefWidth="161.0">
                <children>
-                  <Label alignment="TOP_CENTER" layoutY="4.0" prefHeight="21.0" prefWidth="161.0" text="Appetizers" />
-                  <ListView fx:id="appListView" layoutY="31.0" prefHeight="386.0" prefWidth="161.0" />
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="215.0" layoutY="70.0" maxWidth="-Infinity" prefHeight="417.0" prefWidth="161.0">
-               <children>
                   <Label alignment="TOP_CENTER" layoutY="4.0" prefHeight="21.0" prefWidth="161.0" text="Entrees" />
                   <ListView fx:id="entreeListView" layoutY="31.0" prefHeight="386.0" prefWidth="161.0" />
                </children>
             </AnchorPane>
+            <AnchorPane layoutX="215.0" layoutY="70.0" maxWidth="-Infinity" prefHeight="417.0" prefWidth="161.0">
+               <children>
+                  <Label alignment="TOP_CENTER" layoutX="-60.0" layoutY="4.0" prefHeight="21.0" prefWidth="287.0" text="Appetizers/Desserts/Sides/Etc..." />
+                  <ListView fx:id="appDesListView" layoutY="31.0" prefHeight="386.0" prefWidth="161.0" />
+               </children>
+            </AnchorPane>
             <AnchorPane layoutX="415.0" layoutY="70.0" maxWidth="-Infinity" prefHeight="417.0" prefWidth="161.0">
                <children>
-                  <Label alignment="TOP_CENTER" layoutY="4.0" prefHeight="21.0" prefWidth="161.0" text="Desserts" />
-                  <ListView fx:id="dessertListView" layoutY="31.0" prefHeight="386.0" prefWidth="161.0" />
+                  <Label alignment="TOP_CENTER" layoutY="4.0" prefHeight="21.0" prefWidth="161.0" text="Drinks" />
+                  <ListView fx:id="drinkListView" layoutY="31.0" prefHeight="386.0" prefWidth="161.0" />
                </children>
             </AnchorPane>
          </children>

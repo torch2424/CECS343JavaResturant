@@ -116,8 +116,8 @@ public class TasteMain extends Application {
 
 		//Create a string to alert of item names
 		String orderString = "";
-		for(int i = 0; i < orders.size(); ++i) orderString = orderString + orders.get(i).getName() + " ";
-		FxAlert.alertInfo("Success!", "Order Added! Item Name(s): " + orderString);
+		for(int i = 0; i < orders.size(); ++i) orderString = orderString + orders.get(i).getName() + ", ";
+		FxAlert.alertInfo("Success!", "Order Added! Item Name(s): " + orderString.substring(0, orderString.length() - 2));
 	}
 
 }
