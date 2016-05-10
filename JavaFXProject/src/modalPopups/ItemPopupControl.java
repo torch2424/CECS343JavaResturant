@@ -106,15 +106,22 @@ public class ItemPopupControl {
 	@FXML
 	public void addItem(ActionEvent event){
 
-		//Get our selected items
-		int index;
+		//Create an arraylist for our items
+		ArrayList<RItem> listOrders = new ArrayList<RItem>();
 
-//		if(appDesListView.getSelectionModel().getSelectedItem())
+		//Get our selected items, first check if they are null
+		if(entreeListView.getSelectionModel().getSelectedItem() != null) {
+			listOrders.add(findItemInMenu(entreeListView.getSelectionModel().getSelectedItem()));
+		}
+		if(appDesListView.getSelectionModel().getSelectedItem() != null) {
+			listOrders.add(findItemInMenu(appDesListView.getSelectionModel().getSelectedItem()));
+		}
+		if(drinkListView.getSelectionModel().getSelectedItem() != null) {
+			listOrders.add(findItemInMenu(drinkListView.getSelectionModel().getSelectedItem()));
+		}
 
-		//Add the item to the main state
-//		ArrayList<RItem> listOrders = new ArrayList<RItem>();
-//		listOrders.add(foodMenu.getAppetizers().get(index));
-//		TasteMain.addItem(listOrders, tableIndex);
+		//Finally send to the main
+		TasteMain.addItem(listOrders, tableIndex);
 	}
 
 	//Helper function to get item
