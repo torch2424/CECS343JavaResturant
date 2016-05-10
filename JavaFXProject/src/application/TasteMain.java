@@ -2,13 +2,13 @@ package application;
 
 import java.util.ArrayList;
 
-import fxtools.FxAlert;
+import appAnalysis.RAnalysis;
+import appElements.FxAlert;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import rAnalysis.RAnalysis;
 import rModels.RItem;
 import rModels.RTable;
 

@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 
-<TitledPane fx:id="tablePane" animated="false" prefHeight="351.0" prefWidth="500.0" text="New Table" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiElements.TableController">
+<TitledPane fx:id="tablePane" animated="false" prefHeight="351.0" prefWidth="500.0" text="New Table" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appElements.TableController">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" onKeyTyped="#setTableName" prefHeight="180.0" prefWidth="200.0">
            <children>

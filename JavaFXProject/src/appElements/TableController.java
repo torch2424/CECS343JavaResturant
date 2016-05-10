@@ -1,4 +1,4 @@
-package guiElements;
+package appElements;
 
 import java.util.ArrayList;
 
@@ -68,7 +68,7 @@ public class TableController {
 		//Item Modal
 		//Get our FXML Loader
 		FXMLLoader loader = new FXMLLoader(
-			    getClass().getResource("../modalPopups/itemDialog.fxml"));
+			    getClass().getResource("../appElements/itemDialog.fxml"));
 		StaticModalManager.ItemModal(loader, event, tableIndex);
 	}
 

@@ -3,7 +3,8 @@ package application;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import guiElements.TableController;
+import appAnalysis.RAnalysis;
+import appElements.TableController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import rAnalysis.RAnalysis;
 import rModels.RItem;
 
 public class GuiController {
@@ -59,7 +59,7 @@ public class GuiController {
 
 		//Load a new Tables
 		FXMLLoader loader = new FXMLLoader(
-			    getClass().getResource("../guiElements/tableGui.fxml"));
+			    getClass().getResource("../appElements/tableGui.fxml"));
 		tableAccordion.getPanes().add(loader.load());
 
 		//Get our table index

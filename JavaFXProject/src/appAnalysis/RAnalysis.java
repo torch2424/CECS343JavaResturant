@@ -1,4 +1,4 @@
-package rAnalysis;
+package appAnalysis;
 
 import java.util.ArrayList;
 import java.util.Collections;
