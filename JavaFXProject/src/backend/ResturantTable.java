@@ -69,9 +69,14 @@ public class ResturantTable {
 		order = newOrder;
 	}
 
+	//Clear orders from a table
+	public void clearOrders() {
+		order.clear();
+	}
+
 	public void listFood() {
 		for (Entry<String, Boolean> entry : order.entrySet()) {
-			System.out.println(entry.getKey());
+			//System.out.println(entry.getKey());
 		}
 	}
 }

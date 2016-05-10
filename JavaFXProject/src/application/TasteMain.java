@@ -112,13 +112,6 @@ public class TasteMain extends Application {
 		//Get the table name
 		String tableName = tables.get(index).getTableName();
 
-		//Remove the table from the backend
-		new Thread(new Runnable() {
-		    public void run() {
-		    	backend.deleteTable(tables.get(index).getFirebaseKey());
-		    }
-		}).start();
-
 		//Remove the table
 		tables.remove(index);
 

@@ -61,13 +61,10 @@ public class TableController {
 			//Create the menuItem and add it
 			MenuItem newMenuItem = new MenuItem(orders.get(i).getName());
 			newMenuItem.setOnAction(e -> {
-				if(newMenuItem.getText().contains(" - SERVED") != true){
+				if(newMenuItem.getText().contains(" - SERVED") != true) {
 
 					//Save the item name for the backend
 					String itemName = newMenuItem.getText();
-
-					//Add the served text
-					newMenuItem.setText(newMenuItem.getText() + " - SERVED");
 
 					//Change the status in the backend
 					//Add to the backend
@@ -79,6 +76,9 @@ public class TableController {
 
 					//Update the backend
 					TasteMain.updateBackendTable(tableIndex);
+
+					//Add the served text
+					newMenuItem.setText(newMenuItem.getText() + " - SERVED");
 
 				}
 			});
@@ -171,7 +171,7 @@ public class TableController {
 		//Add to the backend
 		new Thread(new Runnable() {
 		    public void run() {
-		    	TasteMain.backend.tableList.get(TasteMain.getTables().get(tableIndex).getFirebaseKey().getKey()).clearTable();;
+		    	TasteMain.backend.tableList.get(TasteMain.getTables().get(tableIndex).getFirebaseKey().getKey()).clearOrders();
 		    }
 		}).start();
 

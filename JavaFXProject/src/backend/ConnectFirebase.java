@@ -10,7 +10,6 @@ import java.util.Map.Entry;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
-import com.firebase.client.Query;
 import com.firebase.client.ValueEventListener;
 
 /**
@@ -53,7 +52,6 @@ public class ConnectFirebase {
 
 			@Override
 			public void onDataChange(DataSnapshot arg0) {
-				System.out.println("Updating...");
 				for(DataSnapshot tables: arg0.getChildren()){
 					ResturantTable updateTable = new ResturantTable();
 
@@ -106,12 +104,12 @@ public class ConnectFirebase {
 		ResturantTable table = new ResturantTable();
 		Firebase newTableRef = tableRef.push();
 
-		System.out.println("Creating Table...");
+		//System.out.println("Creating Table...");
 		newTableRef.setValue(table, new Firebase.CompletionListener() {
 
 			@Override
 			public void onComplete(FirebaseError arg0, Firebase arg1) {
-				System.out.println("Table created");
+				//System.out.println("Table created");
 
 			}
 		});
@@ -128,9 +126,13 @@ public class ConnectFirebase {
 	 */
 	public void updateTable(ResturantTable table){
 
-		System.out.println("Updating Table...");
+		//System.out.println("Updating Table...");
 		Firebase tableRef = table.getRef();
 		HashMap<String, Boolean> order = table.getOrder();
+
+		//To fix order updating
+		tableRef.child("order").setValue(null);
+
 		for(Entry<String, Boolean> entry: order.entrySet()){
 			String food = entry.getKey();
 			tableRef.child("order").child(food).setValue(entry.getValue());
@@ -147,12 +149,12 @@ public class ConnectFirebase {
 	 * @param table Firebase ref to that table object.
 	 */
 	public void clearTable(Firebase table){
-		System.out.println("Clearing Table...");
+		//System.out.println("Clearing Table...");
 		table.setValue(new ResturantTable(), new Firebase.CompletionListener() {
 
 			@Override
 			public void onComplete(FirebaseError arg0, Firebase arg1) {
-				System.out.println("Table cleared");
+				//System.out.println("Table cleared");
 
 			}
 		});
@@ -163,7 +165,7 @@ public class ConnectFirebase {
 	 * Turn all table into state 0, which is ready state
 	 */
 	public void clearAllTable(){
-		System.out.println("Clearing all tables...");
+		//System.out.println("Clearing all tables...");
 		Firebase tableRef = root.child("Table");
 		tableRef.addListenerForSingleValueEvent(new ValueEventListener(){
 
@@ -195,7 +197,7 @@ public class ConnectFirebase {
 
 			@Override
 			public void onComplete(FirebaseError arg0, Firebase arg1) {
-				System.out.println("Table deleted");
+				//System.out.println("Table deleted");
 
 			}
 		});
@@ -206,7 +208,7 @@ public class ConnectFirebase {
 	 * All the values at node "Table" will be deleted
 	 */
 	public void deleteAllTable(){
-		System.out.println("Deleting all tables");
+		//System.out.println("Deleting all tables");
 		root.child("Table").removeValue();
 		sleep(4);
 	}

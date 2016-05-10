@@ -87,6 +87,13 @@ public class GuiController {
 	//Remove a table
 	public void removeTable(int index) {
 
+		//Remove the table from the backend
+		new Thread(new Runnable() {
+		    public void run() {
+		    	TasteMain.backend.deleteTable(TasteMain.getTables().get(index).getFirebaseKey());
+		    }
+		}).start();
+
 		//Remove the table from the Accordion
 		tableAccordion.getPanes().remove(index);
 
