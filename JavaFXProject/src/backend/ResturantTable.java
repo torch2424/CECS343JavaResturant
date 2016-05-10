@@ -12,7 +12,7 @@ import com.firebase.client.Firebase;
  *         Object to store in the database
  *
  */
-public class Table {
+public class ResturantTable {
 
 	/**
 	 * state: 0 - Ready 1 - Occ'd 2 - Dirty
@@ -21,7 +21,7 @@ public class Table {
 	private Firebase ref;
 	HashMap<String, Boolean> order;
 
-	public Table() {
+	public ResturantTable() {
 		state = 0;
 		order = new HashMap<String, Boolean>();
 

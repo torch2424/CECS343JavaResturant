@@ -27,12 +27,12 @@ import com.firebase.client.ValueEventListener;
 public class ConnectFirebase {
 
 	Firebase root;
-	HashMap<String, Table> tableList;
+	public HashMap<String, ResturantTable> tableList;
 //	Thread thread;
 
 	public ConnectFirebase(){
 		root = new Firebase("https://cecs343javaproject.firebaseio.com");
-		tableList = new HashMap<String, Table>();
+		tableList = new HashMap<String, ResturantTable>();
 	}
 
 	/**
@@ -41,6 +41,7 @@ public class ConnectFirebase {
 	 *	Always update Table class reference
 	 */
 	public void start(){
+
 		Firebase tableRootRef = root.child("Table");
 		tableRootRef.addValueEventListener(new ValueEventListener() {
 
@@ -54,7 +55,7 @@ public class ConnectFirebase {
 			public void onDataChange(DataSnapshot arg0) {
 				System.out.println("Updating...");
 				for(DataSnapshot tables: arg0.getChildren()){
-					Table updateTable = new Table();
+					ResturantTable updateTable = new ResturantTable();
 
 					Firebase tableRef = tableRootRef.child(tables.getKey());
 					updateTable.setRef(tableRef);
@@ -99,9 +100,10 @@ public class ConnectFirebase {
 	 * @return Firebase object with the reference to the newly created table
 	 */
 	public Firebase addTable(){
+
 		Firebase tableRef = root.child("Table");
 
-		Table table = new Table();
+		ResturantTable table = new ResturantTable();
 		Firebase newTableRef = tableRef.push();
 
 		System.out.println("Creating Table...");
@@ -124,7 +126,7 @@ public class ConnectFirebase {
 	 * Update all the content of the table to the server
 	 * @param table	Ref to the Table object
 	 */
-	public void updateTable(Table table){
+	public void updateTable(ResturantTable table){
 
 		System.out.println("Updating Table...");
 		Firebase tableRef = table.getRef();
@@ -146,7 +148,7 @@ public class ConnectFirebase {
 	 */
 	public void clearTable(Firebase table){
 		System.out.println("Clearing Table...");
-		table.setValue(new Table(), new Firebase.CompletionListener() {
+		table.setValue(new ResturantTable(), new Firebase.CompletionListener() {
 
 			@Override
 			public void onComplete(FirebaseError arg0, Firebase arg1) {

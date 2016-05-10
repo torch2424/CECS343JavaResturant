@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import appAnalysis.RAnalysis;
 import appElements.TableController;
+import backend.ConnectFirebase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

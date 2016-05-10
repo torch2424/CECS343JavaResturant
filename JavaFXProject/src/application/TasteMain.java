@@ -1,9 +1,12 @@
 package application;
 
 import java.util.ArrayList;
+import java.util.Map.Entry;
 
 import appAnalysis.RAnalysis;
 import appElements.FxAlert;
+import backend.ConnectFirebase;
+import backend.ResturantTable;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -27,6 +30,9 @@ public class TasteMain extends Application {
 	//Our anaylysis Object
 	private static RAnalysis analyzer;
 
+	//Our backend connection
+	public static ConnectFirebase backend;
+
 	//Fucntion to Simply Launch the app
 	public static void main(String[] args) {
 		launch(args);
@@ -38,6 +44,14 @@ public class TasteMain extends Application {
 
 		//instantiate our analyzer
 		analyzer = new RAnalysis();
+
+		//Connect to our database
+		new Thread(new Runnable() {
+		    public void run() {
+				backend = new ConnectFirebase();
+				backend.start();
+		    }
+		}).start();
 
 		//Grab our FXML
 		FXMLLoader loader = new FXMLLoader(
@@ -83,6 +97,13 @@ public class TasteMain extends Application {
 
 		//Add the table to the array
 		tables.add(new RTable(name));
+
+		//Throw it at the backend
+		new Thread(new Runnable() {
+		    public void run() {
+		    	tables.get(tables.size() - 1).setFirebaseKey(backend.addTable());
+		    }
+		}).start();
 	}
 
 	//Delete a table
@@ -90,6 +111,13 @@ public class TasteMain extends Application {
 
 		//Get the table name
 		String tableName = tables.get(index).getTableName();
+
+		//Remove the table from the backend
+		new Thread(new Runnable() {
+		    public void run() {
+		    	backend.deleteTable(tables.get(index).getFirebaseKey());
+		    }
+		}).start();
 
 		//Remove the table
 		tables.remove(index);
