@@ -69,3 +69,8 @@ local.properties
 # Code Recommenders
 .recommenders/
 *.snap
+
+
+#Dont ignore
+!menu
+!firebase-client-jvm-2.5.2
