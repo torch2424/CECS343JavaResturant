@@ -13,4 +13,5 @@
 <fullyQualifiedTypeName name="javafx.scene.input.KeyEvent"/>
 <fullyQualifiedTypeName name="java.util.Map.Entry"/>
 <fullyQualifiedTypeName name="javafx.scene.control.Label"/>
+<fullyQualifiedTypeName name="com.firebase.client.Firebase"/>
 </qualifiedTypeNameHistroy>
